@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  AgrIntel
+//
+//  Created by 实验室 on 2017/6/1.
+//  Copyright © 2017年 实验室. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "AGRConst.h"
+#import "UIView+AGRExtension.h"
+#import "UIBarButtonItem+AGRExtension.h"
+#import "NSDate+AGRExtension.h"
+#import "UIView+AGRDraggable.h"
+
+#ifdef DEBUG
+#define AGRLog(...) NSLog(__VA_ARGS__)
+#else
+#define AGRLog(...)
+#endif
+
+#define AGRLogFunc AGRLog(@"%s",__func__)
+
+#define AGRRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define AGRGlobalBg AGRRGBColor(235, 235, 235)
+
+
+#endif /* PrefixHeader_pch */
