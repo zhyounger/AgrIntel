@@ -1,0 +1,33 @@
+*{ margin:0px; padding:0px;}
+
+body{
+		
+   background-color:#F7FDFF;
+		
+  }
+
+#top{ height:100px; text-align:center; background-image: top_banner.jpg; border:0px solid ; margin-bottom:15px; margin-top:10px;}
+
+#link{
+	color: blue;
+	font-size: 30px;
+          margin-left:50px;       
+      }
+ 
+#link:hover{
+	        color: yellow;
+				
+	    }
+a{ text-decoration:none} 
+
+
+h1{
+
+   color:#6ACDFB;
+
+  text-align:center;
+
+  background:#E6E6FF;
+  
+
+}
