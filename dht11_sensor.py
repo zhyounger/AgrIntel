@@ -3,7 +3,7 @@ import dht11
 import time
 import datetime
 
-def getData():
+def get_Temp():
 # read data using pin 12
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BOARD)
@@ -15,8 +15,5 @@ def getData():
     if result.is_valid():
 	res.append(result.temperature)
 	res.append(result.humidity)
-#    print res
-   # time.sleep(2)
     return res
     GPIO.cleanup()
-#getData()
