@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 单例模式
  */
@@ -52,3 +51,10 @@ class Db {
 		return self::$_connectSource;
 	}
 }
+
+/*
+$connect = Db::getInstance()->connect();
+$sql = "select * from data";
+$result = mysqli_query($connect, $sql);
+echo mysqli_num_rows($result);
+*/

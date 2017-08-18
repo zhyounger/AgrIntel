@@ -4,26 +4,26 @@
  * 单例模式
  */
 class Db {
-	//用于保存类的实例化的静态成员变量
+	//用于保存类的实例化的静态成员变�?
 	static private $_instance;
 	static private $_connectSource;
 	private $_dbConfig = array(
 		'host'     =>'127.0.0.1',
 		'user'     =>'root',
-		'password' =>'',
-		'database' =>'grade'
+		'password' =>'123456',
+		'database' =>'transducer'
 		);
 
 	/**
 	 * 构造函数需要标记为非public（防止外部使用new操作符创建对象）
-	 * 单例不能在其他类中实例化，只能被自身实例化
+	 * 单例不能在其他类中实例化，只能被自身实例�?
 	 */
 	private function __construct() {
 
 	}
 
 	/**
-	 * 拥有一个访问这个实例的公共的静态方法
+	 * 拥有一个访问这个实例的公共的静态方�?
 	 * @return [type] [description]
 	 */
 	static public function getInstance() {
