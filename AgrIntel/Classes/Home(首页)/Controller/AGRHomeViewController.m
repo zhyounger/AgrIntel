@@ -30,9 +30,6 @@
     //设置导航栏
     [self setupNav];
     
-    //设置导航栏左侧logo
-    [self setupLeftLogo];
-    
     //初始化子控制器
     [self setupChildVces];
     
@@ -48,29 +45,19 @@
 -(void)setupChildVces
 {
     AGRSensorViewController *sensor1 = [[AGRSensorViewController alloc]init];
-    sensor1.title = @"传感器1";
-    sensor1.id = AGRSensorId1;
+    sensor1.sensor = @"1";
+    sensor1.day = self.day;
     [self addChildViewController:sensor1];
     
     AGRSensorViewController *sensor2 = [[AGRSensorViewController alloc]init];
-    sensor2.title= @"传感器2";
-    sensor2.id = AGRSensorId2;
+    sensor2.sensor = @"2";
+    sensor2.day = self.day;
     [self addChildViewController:sensor2];
     
-    AGRSensorViewController *sensor3 = [[AGRSensorViewController alloc]init];
-    sensor3.title= @"传感器3";
-    sensor3.id = AGRSensorId3;
-    [self addChildViewController:sensor3];
-    
-    AGRSensorViewController *sensor4 = [[AGRSensorViewController alloc]init];
-    sensor4.title= @"传感器4";
-    sensor4.id = AGRSensorId4;
-    [self addChildViewController:sensor4];
-    
-    AGRSensorViewController *sensor5 = [[AGRSensorViewController alloc]init];
-    sensor5.title= @"传感器5";
-    sensor5.id = AGRSensorId5;
-    [self addChildViewController:sensor5];
+//    AGRSensorViewController *sensor3 = [[AGRSensorViewController alloc]init];
+//    sensor3.title= @"传感器3";
+//    sensor3.id = AGRSensorId3;
+//    [self addChildViewController:sensor3];
     
 }
 
@@ -102,7 +89,7 @@
     self.indicatorView = indicatorView;
     
     //内部的子标签
-    NSArray *titles = @[@"传感器1",@"传感器2",@"传感器3",@"传感器4",@"传感器5"];
+    NSArray *titles = @[@"传感器1",@"传感器2"];
     CGFloat width = titlesView.width / titles.count;
     CGFloat height = titlesView.height;
     for (NSInteger i = 0; i<titles.count; i++) {
@@ -193,27 +180,6 @@
     //点击按钮
     NSInteger index = scrollView.contentOffset.x / scrollView.width;
     [self titleClick:self.titlesView.subviews[index]];
-}
-
-#pragma 导航栏左侧logo
--(void)setupLeftLogo
-{
-    //创建logo
-    UIView *leftLogo = [[UIView alloc] init];
-    leftLogo.frame = CGRectMake(0.0, 0.0, 42.0, 40.0);
-    
-    //设置logo图片
-    UIImageView *logoImg = [[UIImageView alloc] init];
-    logoImg.image = [UIImage imageNamed:@"nav_leftLogo"];
-    logoImg.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    logoImg.frame = leftLogo.frame;
-    [leftLogo addSubview:logoImg];
-    
-    //实现logo拖拽
-    logoImg.userInteractionEnabled = YES;
-    [logoImg makeDraggable];
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftLogo];
 }
 
 - (void)didReceiveMemoryWarning {

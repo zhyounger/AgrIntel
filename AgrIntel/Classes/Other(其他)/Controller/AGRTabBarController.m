@@ -9,7 +9,7 @@
 #import "AGRTabBarController.h"
 #import "AGRNavigationController.h"
 #import "AGRTabBar.h"
-#import "AGRHomeViewController.h"
+#import "AGRDateViewController.h"
 #import "AGRMessageViewController.h"
 #import "AGRSettingViewController.h"
 
@@ -39,7 +39,7 @@
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     //添加子控制器
-    [self setUpChildVc:[[AGRHomeViewController alloc] init] title:@"首页" image:@"tabBar_home" selectedImage:@"tabBar_home_selected"];
+    [self setUpChildVc:[[AGRDateViewController alloc] init] title:@"首页" image:@"tabBar_home" selectedImage:@"tabBar_home_selected"];
     
     [self setUpChildVc:[[AGRMessageViewController alloc] init] title:@"消息" image:@"tabBar_message" selectedImage:@"tabBar_message_selected"];
     

@@ -24,6 +24,10 @@
 		70025D001F21AB9B00F9DEC3 /* AGRSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70025CEF1F21AB9B00F9DEC3 /* AGRSettingViewController.m */; };
 		70025D541F21D26C00F9DEC3 /* NSDate+AGRExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 70025D531F21D26C00F9DEC3 /* NSDate+AGRExtension.m */; };
 		700BEB8F1F3948B8007048C7 /* LCPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 700BEB8E1F3948B8007048C7 /* LCPhotoBrowser.m */; };
+		701879651F46753B00518C59 /* AGRDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701879641F46753B00518C59 /* AGRDateViewController.m */; };
+		7018796F1F46B9D300518C59 /* AGRDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7018796D1F46B9D300518C59 /* AGRDateCell.m */; };
+		701879701F46B9D300518C59 /* AGRDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7018796E1F46B9D300518C59 /* AGRDateCell.xib */; };
+		7018799C1F46D27C00518C59 /* AGRDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7018799B1F46D27C00518C59 /* AGRDate.m */; };
 		701B74191EE029FF0099C901 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 701B74141EE029FF0099C901 /* main.m */; };
 		701B741C1EE02A160099C901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701B741B1EE02A160099C901 /* Assets.xcassets */; };
 		7042E9F11EEEAA170040FF24 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042E9C51EEEAA170040FF24 /* MJRefreshAutoFooter.m */; };
@@ -120,6 +124,8 @@
 		70EFDCAA1EE12AB100300233 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EFDCA21EE12AB100300233 /* AFURLRequestSerialization.m */; };
 		70EFDCAB1EE12AB100300233 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EFDCA41EE12AB100300233 /* AFURLResponseSerialization.m */; };
 		70EFDCAC1EE12AB100300233 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EFDCA61EE12AB100300233 /* AFURLSessionManager.m */; };
+		70FB30E91F4C503000683F86 /* AGRSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FB30E81F4C503000683F86 /* AGRSettingViewController.xib */; };
+		70FB30EC1F4C5B4B00683F86 /* AGRLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FB30EB1F4C5B4B00683F86 /* AGRLimit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +162,13 @@
 		70025D531F21D26C00F9DEC3 /* NSDate+AGRExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+AGRExtension.m"; sourceTree = "<group>"; };
 		700BEB8D1F3948B8007048C7 /* LCPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPhotoBrowser.h; sourceTree = "<group>"; };
 		700BEB8E1F3948B8007048C7 /* LCPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPhotoBrowser.m; sourceTree = "<group>"; };
+		701879631F46753B00518C59 /* AGRDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRDateViewController.h; sourceTree = "<group>"; };
+		701879641F46753B00518C59 /* AGRDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRDateViewController.m; sourceTree = "<group>"; };
+		7018796C1F46B9D300518C59 /* AGRDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRDateCell.h; sourceTree = "<group>"; };
+		7018796D1F46B9D300518C59 /* AGRDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRDateCell.m; sourceTree = "<group>"; };
+		7018796E1F46B9D300518C59 /* AGRDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGRDateCell.xib; sourceTree = "<group>"; };
+		7018799A1F46D27C00518C59 /* AGRDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRDate.h; sourceTree = "<group>"; };
+		7018799B1F46D27C00518C59 /* AGRDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRDate.m; sourceTree = "<group>"; };
 		701B73E41EE028DE0099C901 /* AgrIntel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgrIntel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		701B74141EE029FF0099C901 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		701B741B1EE02A160099C901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -324,6 +337,9 @@
 		70EFDCA41EE12AB100300233 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		70EFDCA51EE12AB100300233 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		70EFDCA61EE12AB100300233 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		70FB30E81F4C503000683F86 /* AGRSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGRSettingViewController.xib; sourceTree = "<group>"; };
+		70FB30EA1F4C5B4B00683F86 /* AGRLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRLimit.h; sourceTree = "<group>"; };
+		70FB30EB1F4C5B4B00683F86 /* AGRLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRLimit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +377,8 @@
 		70025CC61F21AB9B00F9DEC3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				701879631F46753B00518C59 /* AGRDateViewController.h */,
+				701879641F46753B00518C59 /* AGRDateViewController.m */,
 				70025CC71F21AB9B00F9DEC3 /* AGRHomeViewController.h */,
 				70025CC81F21AB9B00F9DEC3 /* AGRHomeViewController.m */,
 				70025CC91F21AB9B00F9DEC3 /* AGRSensorViewController.h */,
@@ -372,6 +390,8 @@
 		70025CCB1F21AB9B00F9DEC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7018799A1F46D27C00518C59 /* AGRDate.h */,
+				7018799B1F46D27C00518C59 /* AGRDate.m */,
 				70025CCC1F21AB9B00F9DEC3 /* AGRSensor.h */,
 				70025CCD1F21AB9B00F9DEC3 /* AGRSensor.m */,
 			);
@@ -381,6 +401,9 @@
 		70025CCE1F21AB9B00F9DEC3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7018796C1F46B9D300518C59 /* AGRDateCell.h */,
+				7018796D1F46B9D300518C59 /* AGRDateCell.m */,
+				7018796E1F46B9D300518C59 /* AGRDateCell.xib */,
 				70025CCF1F21AB9B00F9DEC3 /* AGRSensorCell.h */,
 				70025CD01F21AB9B00F9DEC3 /* AGRSensorCell.m */,
 				70025CD11F21AB9B00F9DEC3 /* AGRSensorCell.xib */,
@@ -487,6 +510,7 @@
 			children = (
 				70025CEE1F21AB9B00F9DEC3 /* AGRSettingViewController.h */,
 				70025CEF1F21AB9B00F9DEC3 /* AGRSettingViewController.m */,
+				70FB30E81F4C503000683F86 /* AGRSettingViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -494,6 +518,8 @@
 		70025CF01F21AB9B00F9DEC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				70FB30EA1F4C5B4B00683F86 /* AGRLimit.h */,
+				70FB30EB1F4C5B4B00683F86 /* AGRLimit.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -909,10 +935,12 @@
 				7042E9FF1EEEAA170040FF24 /* MJRefresh.bundle in Resources */,
 				70ECEA111F3C315A0037CD6E /* fftoast_warning.png in Resources */,
 				70ECEA081F3C315A0037CD6E /* fftoast_info_highlight.png in Resources */,
+				701879701F46B9D300518C59 /* AGRDateCell.xib in Resources */,
 				70ECEA071F3C315A0037CD6E /* fftoast_info@3x.png in Resources */,
 				70ECEA101F3C315A0037CD6E /* fftoast_success_highlight@3x.png in Resources */,
 				70ECEA0F1F3C315A0037CD6E /* fftoast_success_highlight@2x.png in Resources */,
 				70ECEA141F3C315A0037CD6E /* fftoast_warning_highlight.png in Resources */,
+				70FB30E91F4C503000683F86 /* AGRSettingViewController.xib in Resources */,
 				70ECEA0A1F3C315A0037CD6E /* fftoast_info_highlight@3x.png in Resources */,
 				70ECEA001F3C315A0037CD6E /* fftoast_error@2x.png in Resources */,
 				70ECEA0C1F3C315A0037CD6E /* fftoast_success@2x.png in Resources */,
@@ -947,6 +975,7 @@
 				70025D001F21AB9B00F9DEC3 /* AGRSettingViewController.m in Sources */,
 				7042EA3A1EEEAA2E0040FF24 /* SDWebImageManager.m in Sources */,
 				7042EA341EEEAA2E0040FF24 /* SDImageCache.m in Sources */,
+				701879651F46753B00518C59 /* AGRDateViewController.m in Sources */,
 				7042E9FE1EEEAA170040FF24 /* MJRefreshStateHeader.m in Sources */,
 				70025CF91F21AB9B00F9DEC3 /* AppDelegate.m in Sources */,
 				70EFDC941EE12AA400300233 /* SVIndefiniteAnimatedView.m in Sources */,
@@ -957,6 +986,7 @@
 				7042E9FD1EEEAA170040FF24 /* MJRefreshNormalHeader.m in Sources */,
 				7042E9F81EEEAA170040FF24 /* MJRefreshAutoStateFooter.m in Sources */,
 				7042EA3E1EEEAA2E0040FF24 /* UIImage+MultiFormat.m in Sources */,
+				7018799C1F46D27C00518C59 /* AGRDate.m in Sources */,
 				70ECEA181F3C315A0037CD6E /* UIImage+FFToast.m in Sources */,
 				70EFDC7F1EE12A9300300233 /* MJExtensionConst.m in Sources */,
 				7042EA031EEEAA170040FF24 /* UIScrollView+MJRefresh.m in Sources */,
@@ -1006,6 +1036,7 @@
 				7042EA371EEEAA2E0040FF24 /* SDWebImageDecoder.m in Sources */,
 				70025CF31F21AB9B00F9DEC3 /* AGRSensorViewController.m in Sources */,
 				7042E9F71EEEAA170040FF24 /* MJRefreshAutoNormalFooter.m in Sources */,
+				7018796F1F46B9D300518C59 /* AGRDateCell.m in Sources */,
 				70ECEA171F3C315A0037CD6E /* NSString+FFToast.m in Sources */,
 				70025CFC1F21AB9B00F9DEC3 /* AGRNavigationController.m in Sources */,
 				70EFDC841EE12A9300300233 /* NSObject+MJClass.m in Sources */,
@@ -1019,6 +1050,7 @@
 				7042EA331EEEAA2E0040FF24 /* NSImage+WebCache.m in Sources */,
 				7042E9F51EEEAA170040FF24 /* MJRefreshHeader.m in Sources */,
 				701B74191EE029FF0099C901 /* main.m in Sources */,
+				70FB30EC1F4C5B4B00683F86 /* AGRLimit.m in Sources */,
 				7042E9F91EEEAA170040FF24 /* MJRefreshBackGifFooter.m in Sources */,
 				7042EA391EEEAA2E0040FF24 /* SDWebImageDownloaderOperation.m in Sources */,
 				7042EA351EEEAA2E0040FF24 /* SDImageCacheConfig.m in Sources */,
