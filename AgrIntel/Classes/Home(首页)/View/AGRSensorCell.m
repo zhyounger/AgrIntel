@@ -53,35 +53,52 @@
     //传感器创建数据的时间
     NSDate *create = [fmt dateFromString:text.time];
     
-    if (create.isThisYear) { //今年
-        if (create.isToday) { //今天
-            NSDateComponents *cmps = [[NSDate date]deltaFrom:create];
-            
-            if (cmps.hour >= 1) { //时间差距 >= 1小时
-                self.timeLabel.text = [NSString stringWithFormat:@"%zd小时前", cmps.hour];
-            }else if (cmps.minute >= 1){ //1小时 > 时间差距 >= 1分钟
-                self.timeLabel.text = [NSString stringWithFormat:@"%zd分钟前", cmps.minute];
-            }else{ //1分钟 > 时间差距
-                self.timeLabel.text = @"刚刚";
-            }
-        }else if (create.isYesterday){ //昨天
-            fmt.dateFormat = @"昨天 HH:mm";
+    //时间label
+    if (create.isToday) {//今天
+        NSDateComponents *cmps = [[NSDate date]deltaFrom:create];
+        if (cmps.hour >= 1) {//时间差距 >= 1小时
+            fmt.dateFormat = @"HH:mm";
             self.timeLabel.text = [fmt stringFromDate:create];
-        }else{ //其他
-            fmt.dateFormat = @"MM-dd HH:mm";
-            self.timeLabel.text = [fmt stringFromDate:create];
+        }else if (cmps.minute >= 1) {//1小时 > 时间差距 >= 1分钟
+            self.timeLabel.text = [NSString stringWithFormat:@"%zd分钟前", cmps.minute];
+        }else {//1分钟 > 时间差距
+            self.timeLabel.text = @"刚刚";
         }
-    }else{ //非今年
-        //显示正常格式的时间
-        fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+    }else {//不是今天
+        fmt.dateFormat = @"HH:mm";
         self.timeLabel.text = [fmt stringFromDate:create];
     }
+//    if (create.isThisYear) { //今年
+//        if (create.isToday) { //今天
+//            NSDateComponents *cmps = [[NSDate date]deltaFrom:create];
+//            
+//            if (cmps.hour >= 1) { //时间差距 >= 1小时
+//                self.timeLabel.text = [NSString stringWithFormat:@"%zd小时前", cmps.hour];
+//            }else if (cmps.minute >= 1){ //1小时 > 时间差距 >= 1分钟
+//                self.timeLabel.text = [NSString stringWithFormat:@"%zd分钟前", cmps.minute];
+//            }else{ //1分钟 > 时间差距
+//                self.timeLabel.text = @"刚刚";
+//            }
+//        }else if (create.isYesterday){ //昨天
+//            fmt.dateFormat = @"昨天 HH:mm";
+//            self.timeLabel.text = [fmt stringFromDate:create];
+//        }else{ //其他
+//            fmt.dateFormat = @"MM-dd HH:mm";
+//            self.timeLabel.text = [fmt stringFromDate:create];
+//        }
+//    }else{ //非今年
+//        //显示正常格式的时间
+//        fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+//        self.timeLabel.text = [fmt stringFromDate:create];
+//    }
+    
+//    fmt.dateFormat = @"HH:mm";
+//    self.timeLabel.text = [fmt stringFromDate:create];
     
     //添加图片、温湿度和光照强度数据
-    [self.imaImageView sd_setImageWithURL:[NSURL URLWithString:text.img_url] placeholderImage:[UIImage imageNamed:@"cell_loading"]];
-    
+    [self.imaImageView sd_setImageWithURL:[NSURL URLWithString:text.imgurl] placeholderImage:[UIImage imageNamed:@"cell_loading"]];    
     self.temLabel.text = [NSString stringWithFormat:@"%@ ℃",text.tem];
-    self.humLabel.text = [NSString stringWithFormat:@"%@ %%",text.hum];
+    self.humLabel.text = [NSString stringWithFormat:@"%@ %%RH",text.hum];
     self.lightLabel.text = [NSString stringWithFormat:@"%@ Lx",text.light];
     
      //图片圆角
@@ -98,6 +115,14 @@
     NSInteger nowTem = [text.tem integerValue];
     NSInteger nowHum = [text.hum integerValue];
     NSInteger nowLight = [text.light integerValue];
+    
+    //设置三类数据的最高值和最低值
+    NSInteger maxTem = [text.maxtem intValue];
+    NSInteger minTem = [text.mintem intValue];
+    NSInteger maxHum = [text.maxhum intValue];
+    NSInteger minHum = [text.minhum intValue];
+    NSInteger maxLight = [text.maxlight intValue];
+    NSInteger minLight = [text.minlight intValue];
     
     //判断温湿度和光照强度是否正常
     BOOL temIsNormal = (nowTem <= maxTem) && (nowTem >= minTem);

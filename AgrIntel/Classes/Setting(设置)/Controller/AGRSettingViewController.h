@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AGRLimit;
 
 @interface AGRSettingViewController : UIViewController
+//加载xib
++(instancetype)AGRSettingViewController;
+//类别模型
+@property (nonatomic, strong) AGRLimit *limits;
 
 @end

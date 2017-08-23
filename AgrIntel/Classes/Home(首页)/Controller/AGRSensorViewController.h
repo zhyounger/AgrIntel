@@ -8,17 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    AGRSensorId1 = 13,
-    AGRSensorId2 = 14,
-    AGRSensorId3 = 13,
-    AGRSensorId4 = 13,
-    AGRSensorId5 = 13
-}AGRSensorId;
-
 @interface AGRSensorViewController : UITableViewController
 
-//传感器选择(交给子类去实现)
-@property (nonatomic, assign) AGRSensorId id;
+//传感器
+@property (nonatomic, copy) NSString *sensor;
+//日期
+@property (nonatomic, copy) NSString *day;
 
 @end

@@ -1,26 +1,27 @@
 //
-//  AGRSensorViewController.m
+//  AGRDateViewController.m
 //  AgrIntel
 //
-//  Created by 实验室 on 2017/7/11.
+//  Created by 实验室 on 2017/8/18.
 //  Copyright © 2017年 实验室. All rights reserved.
 //
 
-#import "AGRSensorViewController.h"
-#import "AGRSensor.h"
-#import "AGRSensorCell.h"
+#import "AGRDateViewController.h"
+#import "AGRHomeViewController.h"
+#import "AGRDate.h"
+#import "AGRDateCell.h"
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "MJRefresh.h"
 
-@interface AGRSensorViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface AGRDateViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 //数据
 @property (nonatomic, strong) NSArray *data;
 
 @end
 
-@implementation AGRSensorViewController
+@implementation AGRDateViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +31,22 @@
     
     //添加刷新控件
     [self setupRefresh];
+    
+    //设置导航栏左侧logo
+    [self setupLeftLogo];
+    
+    //设置背景色
+    self.view.backgroundColor = AGRGlobalBg;
+}
+
+#pragma 初始化表格
+- (void)setupTableView
+{
+    //设置内边距
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, bottom, 0);    
+    //隐藏表格分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma 刷新控件
@@ -65,17 +82,17 @@
     [self.tableView.mj_footer endRefreshing];
     
     //参数
-    NSMutableDictionary *ID = [NSMutableDictionary dictionary];
-    ID[@"get_day"] = @"1";
-    ID[@"day"] = self.day;
-    ID[@"sensor"] = self.sensor;
-    [[AFHTTPSessionManager manager]GET:@"http://www.orient-zy.cn/api/test.php" parameters:ID progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
-        ////得到plist文件
-        //[responseObject writeToFile:@"/Users/shiyanshi/Desktop/test1.plist" atomically:YES];
-        //NSLog(@"%@",responseObject);
+    NSMutableDictionary *Date = [NSMutableDictionary dictionary];
+    Date[@"get_day"] = @"1";
+    
+    [[AFHTTPSessionManager manager]GET:@"http://www.orient-zy.cn/api/test.php" parameters:Date progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+        //得到plist文件
+//         [responseObject writeToFile:@"/Users/shiyanshi/Desktop/test1.plist" atomically:YES];
+        //打印json
+//        NSLog(@"%@",responseObject);
         
         //字典->模型
-        self.data = [AGRSensor mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        self.data = [AGRDate mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         
         //刷新表格
         [self.tableView reloadData];
@@ -100,22 +117,29 @@
     [self.tableView.mj_footer endRefreshingWithNoMoreData];
 }
 
-#pragma 初始化表格
--(void)setupTableView
+#pragma 导航栏左侧logo
+-(void)setupLeftLogo
 {
-    //设置内边距
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    CGFloat top = AGRTitlesViewY + AGRTitlesViewH;
-    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-    //设置滚动条的内边距
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.tableView.backgroundColor = [UIColor clearColor];
-    //隐藏表格分割线
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //创建logo
+    UIView *leftLogo = [[UIView alloc] init];
+    leftLogo.frame = CGRectMake(0.0, 0.0, 42.0, 40.0);
+    
+    //设置logo图片
+    UIImageView *logoImg = [[UIImageView alloc] init];
+    logoImg.image = [UIImage imageNamed:@"nav_leftLogo"];
+    logoImg.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    logoImg.frame = leftLogo.frame;
+    [leftLogo addSubview:logoImg];
+    
+    //实现logo拖拽
+    logoImg.userInteractionEnabled = YES;
+    [logoImg makeDraggable];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftLogo];
 }
 
 #pragma mark - Table view data source
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
@@ -128,19 +152,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //定义重用标识
-    static NSString *textId = @"textID";
+    static NSString *dateId = @"dateID";
     
     //先用cell的标识去缓存池中查找可循环利用的cell
-    AGRSensorCell *cell = [tableView dequeueReusableCellWithIdentifier:textId];
+    AGRDateCell *cell = [tableView dequeueReusableCellWithIdentifier:dateId];
     
     //如果cell为nil（缓存池中找不到对应的cell）则创建一个带标识的cell
     if (cell == nil) {
-        cell = [AGRSensorCell AGRSensorCell];
+        cell = [AGRDateCell AGRDateCell];
     }
     
     //覆盖数据
     cell.text = self.data[indexPath.row];
-    
     //cell阴影
     cell.layer.shadowOffset =CGSizeMake(0, 0);
     cell.layer.shadowColor = [UIColor grayColor].CGColor;
@@ -153,13 +176,15 @@
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 155;
-}
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    //得到点击的cell
+    AGRDate *d = self.data[indexPath.row];
+    //创建点击后弹出的视图控制器
+    AGRHomeViewController *home = [[AGRHomeViewController alloc]init];
+    home.navigationItem.title = d.day;
+    home.day = d.day;
+    [self.navigationController pushViewController:home animated:YES];
 }
+
 @end
