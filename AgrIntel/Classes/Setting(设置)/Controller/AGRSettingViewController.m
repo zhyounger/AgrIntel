@@ -12,7 +12,7 @@
 #import "MJExtension.h"
 #import "SDImageCache.h"
 
-@interface AGRSettingViewController ()
+@interface AGRSettingViewController ()<UITextFieldDelegate>
 
 //数据
 @property (nonatomic, strong) NSDictionary *data;
@@ -55,6 +55,28 @@
     //获取json数据
     [self getJson];
     
+    //设置textField的属性
+    [self setTextField];
+}
+
+#pragma 设置textField的属性
+- (void)setTextField
+{
+    //textField内的清除按钮
+    self.maxtemText.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.mintemText.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.maxhumText.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.minhumText.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.maxlightText.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.minlightText.clearButtonMode = UITextFieldViewModeWhileEditing;
+    
+    //textField默认显示数字键盘
+    self.maxtemText.keyboardType = UIKeyboardTypeDecimalPad;
+    self.mintemText.keyboardType = UIKeyboardTypeDecimalPad;
+    self.maxhumText.keyboardType = UIKeyboardTypeDecimalPad;
+    self.minhumText.keyboardType = UIKeyboardTypeDecimalPad;
+    self.maxlightText.keyboardType = UIKeyboardTypeDecimalPad;
+    self.minlightText.keyboardType = UIKeyboardTypeDecimalPad;
 }
 
 #pragma 获取json数据
@@ -174,12 +196,20 @@
     [manager POST:url parameters:set progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        //提交成功
-//        NSLog(@"JSON上传成功！");
+        
+        FFToast *toast = [[FFToast alloc]initToastWithTitle:nil message:@"数据提交成功!" iconImage:[UIImage imageNamed:@""]];
+        toast.toastType = FFToastTypeSuccess;
+        toast.toastPosition = FFToastPositionCentre;
+        toast.duration = 1.5;
+        [toast show];
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        //提交失败
-//        NSLog(@"JSON: %@", error);
+        
+        FFToast *toast = [[FFToast alloc]initToastWithTitle:nil message:@"数据提交失败!" iconImage:[UIImage imageNamed:@""]];
+        toast.toastType = FFToastTypeError;
+        toast.toastPosition = FFToastPositionCentre;
+        toast.duration = 1.5;
+        [toast show];
     }];
     
     //页面延时上传
@@ -192,6 +222,11 @@
 - (IBAction)clearBufferBtn:(UIButton *)sender
 {
     [[SDImageCache sharedImageCache] clearMemory];
+    
+    FFToast *toast = [[FFToast alloc]initToastWithTitle:nil message:@"成功清除缓存!" iconImage:nil];
+    toast.toastType = FFToastTypeDefault;
+    toast.toastPosition = FFToastPositionBottomWithFillet;
+    [toast show];
 }
 
 #pragma 导航栏左侧logo
