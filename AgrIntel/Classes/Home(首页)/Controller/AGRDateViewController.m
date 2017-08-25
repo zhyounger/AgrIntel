@@ -85,7 +85,7 @@
     NSMutableDictionary *Date = [NSMutableDictionary dictionary];
     Date[@"get_day"] = @"1";
     
-    [[AFHTTPSessionManager manager]GET:@"http://www.orient-zy.cn/api/test.php" parameters:Date progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+    [[AFHTTPSessionManager manager]GET:@"http://115.159.120.50/AgrIntel/api/test.php" parameters:Date progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
         //得到plist文件
 //         [responseObject writeToFile:@"/Users/shiyanshi/Desktop/test1.plist" atomically:YES];
         //打印json
@@ -146,7 +146,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _data.count;
+    return _data.count - 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

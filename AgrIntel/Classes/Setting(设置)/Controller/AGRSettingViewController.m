@@ -10,22 +10,29 @@
 #import "AGRLimit.h"
 #import "AFNetworking.h"
 #import "MJExtension.h"
+#import "SDImageCache.h"
 
 @interface AGRSettingViewController ()
 
 //数据
 @property (nonatomic, strong) NSDictionary *data;
 
-//@property (nonatomic, strong) NSArray *limit;
-//@property (nonatomic, strong) NSString *maxtem;
-
+//输入最大温度
 @property (weak, nonatomic) IBOutlet UITextField *maxtemText;
+//输入最小温度
 @property (weak, nonatomic) IBOutlet UITextField *mintemText;
+//输入最大湿度
 @property (weak, nonatomic) IBOutlet UITextField *maxhumText;
+//输入最小湿度
 @property (weak, nonatomic) IBOutlet UITextField *minhumText;
+//输入最大光照强度
 @property (weak, nonatomic) IBOutlet UITextField *maxlightText;
+//输入最小光照强度
 @property (weak, nonatomic) IBOutlet UITextField *minlightText;
+//提交按钮
 - (IBAction)submitBtn:(UIButton *)sender;
+//清除缓存按钮
+- (IBAction)clearBufferBtn:(UIButton *)sender;
 
 @end
 
@@ -45,24 +52,38 @@
     //设置导航栏左侧logo
     [self setupLeftLogo];
     
+    //获取json数据
+    [self getJson];
+    
+}
+
+#pragma 获取json数据
+- (void)getJson
+{
+    self.maxtemText.text = [NSString stringWithFormat:@""];
+    self.mintemText.text = [NSString stringWithFormat:@""];
+    self.maxhumText.text = [NSString stringWithFormat:@""];
+    self.minhumText.text = [NSString stringWithFormat:@""];
+    self.maxlightText.text = [NSString stringWithFormat:@""];
+    self.minlightText.text = [NSString stringWithFormat:@""];
+    
     NSMutableDictionary *Limit = [NSMutableDictionary dictionary];
     Limit[@"limit"] = @"1";
     
-    [[AFHTTPSessionManager manager]GET:@"http://www.orient-zy.cn/api/test.php" parameters:Limit progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
-        NSLog(@"原始数据：%@",responseObject);
-
+    [[AFHTTPSessionManager manager]GET:@"http://115.159.120.50/AgrIntel/api/test.php" parameters:Limit progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+//        NSLog(@"原始数据：%@",responseObject);
+        
         self.data = responseObject[@"data"][0];
 //        NSLog(@"数据:%@",self.data[@"maxtem"]);
+        
         [self setTextFieldTitle:self.data];
-        //字典->模型
-//        self.data = [AGRLimit mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
         
     }];
-    
 }
 
+#pragma 设置文字输入框的默认文字
 -(void)setTextFieldTitle:(NSDictionary*)data
 {
     self.maxtemText.placeholder = [NSString stringWithFormat:@"%@", data[@"maxtem"]];
@@ -73,12 +94,105 @@
     self.minlightText.placeholder = [NSString stringWithFormat:@"%@", data[@"minlight"]];
 }
 
-//- (IBAction)submitBtn:(UIButton *)sender
-//{
-//    NSString *a = self.maxtemText.text;
-//    NSLog(@"%@",a);
-//}
+#pragma 提交按钮的点击
+- (IBAction)submitBtn:(UIButton *)sender
+{
+//    NSString *maxtem = self.maxtemText.text;
+//    NSString *mintem = self.mintemText.text;
+//    NSString *maxhum = self.maxhumText.text;
+//    NSString *minhum = self.minhumText.text;
+//    NSString *maxlight = self.maxlightText.text;
+//    NSString *minlight = self.minlightText.text;
+//    
+    NSMutableDictionary *set = [NSMutableDictionary dictionary];
+//    set[@"maxtem"] = maxtem;
+//    set[@"mintem"] = mintem;
+//    set[@"maxhum"] = maxhum;
+//    set[@"minhum"] = minhum;
+//    set[@"maxlight"] = maxlight;
+//    set[@"minlight"] = minlight;
+//    NSLog(@"%@",set);
+    
 
+    if (_maxtemText.text.length == 0) {
+        set[@"maxtem"] = self.maxtemText.placeholder;
+    } else {
+        set[@"maxtem"] =self.maxtemText.text;
+    }
+    
+    if (_mintemText.text.length == 0) {
+        set[@"mintem"] = self.mintemText.placeholder;
+    } else {
+        set[@"mintem"] =self.mintemText.text;
+    }
+    
+    
+    if (_maxhumText.text.length == 0) {
+        set[@"maxhum"] = self.maxhumText.placeholder;
+    } else {
+        set[@"maxhum"] =self.maxhumText.text;
+    }
+    
+    
+    if (_minhumText.text.length == 0) {
+        set[@"minhum"] = self.minhumText.placeholder;
+    } else {
+        set[@"minhum"] =self.minhumText.text;
+    }
+    
+    
+    if (_maxlightText.text.length == 0) {
+        set[@"maxlight"] = self.maxlightText.placeholder;
+    } else {
+        set[@"maxlight"] =self.maxlightText.text;
+    }
+    
+    
+    if (_minlightText.text.length == 0) {
+        set[@"minlight"] = self.minlightText.placeholder;
+    } else {
+        set[@"minlight"] =self.minlightText.text;
+    }
+    
+//    //打印用户set的值
+//    NSLog(@"set的值:%@", set);
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    //申明返回的结果是json类型
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    //申明请求的数据是json类型
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    
+    //如果报接受类型不一致请替换一致text/html或别的
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/json"];
+    
+    //接口地址
+    NSString *url=@"http://115.159.120.50/AgrIntel/api/set.php";
+    
+    //发送请求
+    [manager POST:url parameters:set progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        //提交成功
+//        NSLog(@"JSON上传成功！");
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        //提交失败
+//        NSLog(@"JSON: %@", error);
+    }];
+    
+    //页面延时上传
+    [NSThread sleepForTimeInterval:0.5f];
+    
+    [self getJson];
+}
+
+#pragma 清除缓存按钮的点击
+- (IBAction)clearBufferBtn:(UIButton *)sender
+{
+    [[SDImageCache sharedImageCache] clearMemory];
+}
 
 #pragma 导航栏左侧logo
 -(void)setupLeftLogo
@@ -103,12 +217,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-- (IBAction)submitBtn:(UIButton *)sender
-{
-    NSString *a = self.maxtemText.text;
-    NSLog(@"%@",a);
-    
-}
+
 @end
