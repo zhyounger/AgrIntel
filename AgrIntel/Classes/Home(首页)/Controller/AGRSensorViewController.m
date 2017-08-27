@@ -32,6 +32,20 @@
     [self setupRefresh];
 }
 
+#pragma 初始化表格
+-(void)setupTableView
+{
+    //设置内边距
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    CGFloat top = AGRTitlesViewY + AGRTitlesViewH;
+    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    //设置滚动条的内边距
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    //隐藏表格分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
 #pragma 刷新控件
 -(void)setupRefresh
 {
@@ -100,20 +114,6 @@
     [self.tableView.mj_footer endRefreshingWithNoMoreData];
 }
 
-#pragma 初始化表格
--(void)setupTableView
-{
-    //设置内边距
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    CGFloat top = AGRTitlesViewY + AGRTitlesViewH;
-    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-    //设置滚动条的内边距
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.tableView.backgroundColor = [UIColor clearColor];
-    //隐藏表格分割线
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-}
-
 #pragma mark - Table view data source
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -158,8 +158,4 @@
     return 155;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
 @end

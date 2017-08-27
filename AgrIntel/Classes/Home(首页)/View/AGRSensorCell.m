@@ -129,7 +129,7 @@
     BOOL humIsNormal = (nowHum <= maxHum) && (nowHum >= minHum);
     BOOL lightIsNormal = (nowLight <= maxLight) && (nowLight >= minLight);
     
-    //若正常,label为黑色；若异常,label为橙色
+    //若正常,label为黑色；若异常,label为红色
     if (temIsNormal) {
         if (humIsNormal) {
             if (lightIsNormal) {//全都正常
@@ -139,35 +139,35 @@
             }else{//温度正常，湿度正常，光照强度异常
                 self.temLabel.textColor = [UIColor blackColor];
                 self.humLabel.textColor = [UIColor blackColor];
-                self.lightLabel.textColor = [UIColor orangeColor];
+                self.lightLabel.textColor = [UIColor redColor];
             }
         }else if (lightIsNormal){//温度正常，湿度异常，光照强度正常
             self.temLabel.textColor = [UIColor blackColor];
-            self.humLabel.textColor = [UIColor orangeColor];
+            self.humLabel.textColor = [UIColor redColor];
             self.lightLabel.textColor = [UIColor blackColor];
         }else{//温度正常，湿度异常，光照强度异常
             self.temLabel.textColor = [UIColor blackColor];
-            self.humLabel.textColor = [UIColor orangeColor];
-            self.lightLabel.textColor = [UIColor orangeColor];
+            self.humLabel.textColor = [UIColor redColor];
+            self.lightLabel.textColor = [UIColor redColor];
         }
     }else if (humIsNormal){
         if (lightIsNormal) {//温度异常，湿度正常，光照强度正常
-            self.temLabel.textColor = [UIColor orangeColor];
+            self.temLabel.textColor = [UIColor redColor];
             self.humLabel.textColor = [UIColor blackColor];
             self.lightLabel.textColor = [UIColor blackColor];
         }else{//温度异常，湿度正常，光照强度异常
-            self.temLabel.textColor = [UIColor orangeColor];
+            self.temLabel.textColor = [UIColor redColor];
             self.humLabel.textColor = [UIColor blackColor];
-            self.lightLabel.textColor = [UIColor orangeColor];
+            self.lightLabel.textColor = [UIColor redColor];
         }
     }else if (lightIsNormal){//温度异常，湿度异常，光照强度正常
-        self.temLabel.textColor = [UIColor orangeColor];
-        self.humLabel.textColor = [UIColor orangeColor];
+        self.temLabel.textColor = [UIColor redColor];
+        self.humLabel.textColor = [UIColor redColor];
         self.lightLabel.textColor = [UIColor blackColor];
     }else{//全都异常
-        self.temLabel.textColor = [UIColor orangeColor];
-        self.humLabel.textColor = [UIColor orangeColor];
-        self.lightLabel.textColor = [UIColor orangeColor];
+        self.temLabel.textColor = [UIColor redColor];
+        self.humLabel.textColor = [UIColor redColor];
+        self.lightLabel.textColor = [UIColor redColor];
     }
     
     //温度细节文字
