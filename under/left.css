@@ -1,0 +1,21 @@
+*{ margin:0px; padding:0px;}
+
+body{
+		
+   background-color:#DBEAF9;
+		
+  }
+
+#top{ text-align:center; border:0px solid ; margin-top:5px;}
+
+#link{
+	color: blue;
+	font-size: 30px;
+          margin-left:50px;       
+      }
+ 
+#link:hover{
+	        color: yellow;
+				
+	    }
+a{ text-decoration:none} 

@@ -1,33 +1,58 @@
-*{ margin:0px; padding:0px;}
-
-body{
-		
-   background-color:#F7FDFF;
-		
-  }
-
-#top{ height:100px; text-align:center; background-image: top_banner.jpg; border:0px solid ; margin-bottom:15px; margin-top:10px;}
-
-#link{
-	color: blue;
-	font-size: 30px;
-          margin-left:50px;       
-      }
- 
-#link:hover{
-	        color: yellow;
-				
-	    }
-a{ text-decoration:none} 
-
-
-h1{
-
-   color:#6ACDFB;
-
-  text-align:center;
-
-  background:#E6E6FF;
-  
-
+*{ 
+    margin:0px; 
+    padding:0px;
 }
+
+#title{ 
+    //color:#6ACDFB;
+    color:#666666;
+    text-align:center;
+    //background:#E6E6FF;
+    background::#e5f1ff;
+    margin-top:8px;
+    margin-bottom:5px;
+}
+
+#top{ 
+    text-align:center;
+    border:0px solid ; 
+    margin-top:5px;
+}
+
+/*
+a{ 
+    color:#000000
+    text-decoration:none;
+    color: blue;
+    font-size: 22px;
+    margin-left:50px;       
+} 
+*/
+
+a:link{
+    font-size: 22px;
+    margin-left:50px;       
+    color:#666666;
+    text-decoration:none;
+} 
+
+a:visited{
+    font-size: 22px;
+    margin-left:50px;       
+    color:#666666;
+    text-decoration:none;
+}
+ 
+a:hover{
+    font-size: 22px;
+    margin-left:50px;       
+    color:purple;
+    text-decoration:none;
+} 
+
+a:active{
+    font-size: 22px;
+    margin-left:50px;       
+    color:#000000;
+} 
+
