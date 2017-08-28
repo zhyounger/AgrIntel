@@ -12,7 +12,6 @@
 		70025CF41F21AB9B00F9DEC3 /* AGRSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 70025CCD1F21AB9B00F9DEC3 /* AGRSensor.m */; };
 		70025CF51F21AB9B00F9DEC3 /* AGRSensorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70025CD01F21AB9B00F9DEC3 /* AGRSensorCell.m */; };
 		70025CF61F21AB9B00F9DEC3 /* AGRSensorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70025CD11F21AB9B00F9DEC3 /* AGRSensorCell.xib */; };
-		70025CF71F21AB9B00F9DEC3 /* AGRMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70025CD51F21AB9B00F9DEC3 /* AGRMessageViewController.m */; };
 		70025CF81F21AB9B00F9DEC3 /* AGRConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 70025CDA1F21AB9B00F9DEC3 /* AGRConst.m */; };
 		70025CF91F21AB9B00F9DEC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70025CDC1F21AB9B00F9DEC3 /* AppDelegate.m */; };
 		70025CFA1F21AB9B00F9DEC3 /* UIBarButtonItem+AGRExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 70025CDF1F21AB9B00F9DEC3 /* UIBarButtonItem+AGRExtension.m */; };
@@ -30,6 +29,12 @@
 		7018799C1F46D27C00518C59 /* AGRDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7018799B1F46D27C00518C59 /* AGRDate.m */; };
 		701B74191EE029FF0099C901 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 701B74141EE029FF0099C901 /* main.m */; };
 		701B741C1EE02A160099C901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701B741B1EE02A160099C901 /* Assets.xcassets */; };
+		7020DD8D1F5119870037FBE2 /* AGRMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020DD8C1F5119870037FBE2 /* AGRMessageViewController.m */; };
+		7020DD981F5120F10037FBE2 /* AGRMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020DD971F5120F10037FBE2 /* AGRMessage.m */; };
+		7020DD9C1F5130B60037FBE2 /* AGRMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020DD9A1F5130B60037FBE2 /* AGRMessageCell.m */; };
+		7020DD9D1F5130B60037FBE2 /* AGRMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7020DD9B1F5130B60037FBE2 /* AGRMessageCell.xib */; };
+		7020DDA11F516F110037FBE2 /* AGRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020DD9F1F516F110037FBE2 /* AGRDetailViewController.m */; };
+		7020DDA21F516F110037FBE2 /* AGRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7020DDA01F516F110037FBE2 /* AGRDetailViewController.xib */; };
 		7042E9F11EEEAA170040FF24 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042E9C51EEEAA170040FF24 /* MJRefreshAutoFooter.m */; };
 		7042E9F21EEEAA170040FF24 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042E9C71EEEAA170040FF24 /* MJRefreshBackFooter.m */; };
 		7042E9F31EEEAA170040FF24 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042E9C91EEEAA170040FF24 /* MJRefreshComponent.m */; };
@@ -138,8 +143,6 @@
 		70025CCF1F21AB9B00F9DEC3 /* AGRSensorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRSensorCell.h; sourceTree = "<group>"; };
 		70025CD01F21AB9B00F9DEC3 /* AGRSensorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRSensorCell.m; sourceTree = "<group>"; };
 		70025CD11F21AB9B00F9DEC3 /* AGRSensorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGRSensorCell.xib; sourceTree = "<group>"; };
-		70025CD41F21AB9B00F9DEC3 /* AGRMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRMessageViewController.h; sourceTree = "<group>"; };
-		70025CD51F21AB9B00F9DEC3 /* AGRMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRMessageViewController.m; sourceTree = "<group>"; };
 		70025CD91F21AB9B00F9DEC3 /* AGRConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRConst.h; sourceTree = "<group>"; };
 		70025CDA1F21AB9B00F9DEC3 /* AGRConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRConst.m; sourceTree = "<group>"; };
 		70025CDB1F21AB9B00F9DEC3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -173,6 +176,16 @@
 		701B74141EE029FF0099C901 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		701B741B1EE02A160099C901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		701B74361EE0499A0099C901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7020DD8B1F5119870037FBE2 /* AGRMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRMessageViewController.h; sourceTree = "<group>"; };
+		7020DD8C1F5119870037FBE2 /* AGRMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRMessageViewController.m; sourceTree = "<group>"; };
+		7020DD961F5120F10037FBE2 /* AGRMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRMessage.h; sourceTree = "<group>"; };
+		7020DD971F5120F10037FBE2 /* AGRMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRMessage.m; sourceTree = "<group>"; };
+		7020DD991F5130B60037FBE2 /* AGRMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRMessageCell.h; sourceTree = "<group>"; };
+		7020DD9A1F5130B60037FBE2 /* AGRMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRMessageCell.m; sourceTree = "<group>"; };
+		7020DD9B1F5130B60037FBE2 /* AGRMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGRMessageCell.xib; sourceTree = "<group>"; };
+		7020DD9E1F516F110037FBE2 /* AGRDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRDetailViewController.h; sourceTree = "<group>"; };
+		7020DD9F1F516F110037FBE2 /* AGRDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRDetailViewController.m; sourceTree = "<group>"; };
+		7020DDA01F516F110037FBE2 /* AGRDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGRDetailViewController.xib; sourceTree = "<group>"; };
 		7042E9C41EEEAA170040FF24 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		7042E9C51EEEAA170040FF24 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		7042E9C61EEEAA170040FF24 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -424,8 +437,11 @@
 		70025CD31F21AB9B00F9DEC3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				70025CD41F21AB9B00F9DEC3 /* AGRMessageViewController.h */,
-				70025CD51F21AB9B00F9DEC3 /* AGRMessageViewController.m */,
+				7020DD8B1F5119870037FBE2 /* AGRMessageViewController.h */,
+				7020DD8C1F5119870037FBE2 /* AGRMessageViewController.m */,
+				7020DD9E1F516F110037FBE2 /* AGRDetailViewController.h */,
+				7020DD9F1F516F110037FBE2 /* AGRDetailViewController.m */,
+				7020DDA01F516F110037FBE2 /* AGRDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -433,6 +449,8 @@
 		70025CD61F21AB9B00F9DEC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7020DD961F5120F10037FBE2 /* AGRMessage.h */,
+				7020DD971F5120F10037FBE2 /* AGRMessage.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,6 +458,9 @@
 		70025CD71F21AB9B00F9DEC3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7020DD991F5130B60037FBE2 /* AGRMessageCell.h */,
+				7020DD9A1F5130B60037FBE2 /* AGRMessageCell.m */,
+				7020DD9B1F5130B60037FBE2 /* AGRMessageCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -937,6 +958,7 @@
 				70ECEA081F3C315A0037CD6E /* fftoast_info_highlight.png in Resources */,
 				701879701F46B9D300518C59 /* AGRDateCell.xib in Resources */,
 				70ECEA071F3C315A0037CD6E /* fftoast_info@3x.png in Resources */,
+				7020DD9D1F5130B60037FBE2 /* AGRMessageCell.xib in Resources */,
 				70ECEA101F3C315A0037CD6E /* fftoast_success_highlight@3x.png in Resources */,
 				70ECEA0F1F3C315A0037CD6E /* fftoast_success_highlight@2x.png in Resources */,
 				70ECEA141F3C315A0037CD6E /* fftoast_warning_highlight.png in Resources */,
@@ -949,6 +971,7 @@
 				70ECEA121F3C315A0037CD6E /* fftoast_warning@2x.png in Resources */,
 				70ECEA0B1F3C315A0037CD6E /* fftoast_success.png in Resources */,
 				70ECE9FC1F3C315A0037CD6E /* fftoast_dismiss.png in Resources */,
+				7020DDA21F516F110037FBE2 /* AGRDetailViewController.xib in Resources */,
 				70ECEA0E1F3C315A0037CD6E /* fftoast_success_highlight.png in Resources */,
 				70ECEA0D1F3C315A0037CD6E /* fftoast_success@3x.png in Resources */,
 				70ECEA051F3C315A0037CD6E /* fftoast_info.png in Resources */,
@@ -972,6 +995,7 @@
 			files = (
 				70025CFF1F21AB9B00F9DEC3 /* AGRTabBar.m in Sources */,
 				7042E9F31EEEAA170040FF24 /* MJRefreshComponent.m in Sources */,
+				7020DD8D1F5119870037FBE2 /* AGRMessageViewController.m in Sources */,
 				70025D001F21AB9B00F9DEC3 /* AGRSettingViewController.m in Sources */,
 				7042EA3A1EEEAA2E0040FF24 /* SDWebImageManager.m in Sources */,
 				7042EA341EEEAA2E0040FF24 /* SDImageCache.m in Sources */,
@@ -985,6 +1009,7 @@
 				700BEB8F1F3948B8007048C7 /* LCPhotoBrowser.m in Sources */,
 				7042E9FD1EEEAA170040FF24 /* MJRefreshNormalHeader.m in Sources */,
 				7042E9F81EEEAA170040FF24 /* MJRefreshAutoStateFooter.m in Sources */,
+				7020DDA11F516F110037FBE2 /* AGRDetailViewController.m in Sources */,
 				7042EA3E1EEEAA2E0040FF24 /* UIImage+MultiFormat.m in Sources */,
 				7018799C1F46D27C00518C59 /* AGRDate.m in Sources */,
 				70ECEA181F3C315A0037CD6E /* UIImage+FFToast.m in Sources */,
@@ -1011,6 +1036,7 @@
 				70025CFB1F21AB9B00F9DEC3 /* UIView+AGRExtension.m in Sources */,
 				70EFDCA91EE12AB100300233 /* AFSecurityPolicy.m in Sources */,
 				7042EA311EEEAA2E0040FF24 /* MKAnnotationView+WebCache.m in Sources */,
+				7020DD9C1F5130B60037FBE2 /* AGRMessageCell.m in Sources */,
 				7042EA381EEEAA2E0040FF24 /* SDWebImageDownloader.m in Sources */,
 				70E5CBC71F288DF00053090A /* UIView+AGRDraggable.m in Sources */,
 				7042EA3F1EEEAA2E0040FF24 /* UIImage+WebP.m in Sources */,
@@ -1030,11 +1056,11 @@
 				70025CF51F21AB9B00F9DEC3 /* AGRSensorCell.m in Sources */,
 				70ECEA1B1F3C315A0037CD6E /* FFToast.m in Sources */,
 				7042EA421EEEAA2E0040FF24 /* UIView+WebCache.m in Sources */,
-				70025CF71F21AB9B00F9DEC3 /* AGRMessageViewController.m in Sources */,
 				70025CF41F21AB9B00F9DEC3 /* AGRSensor.m in Sources */,
 				70EFDC831EE12A9300300233 /* MJPropertyType.m in Sources */,
 				7042EA371EEEAA2E0040FF24 /* SDWebImageDecoder.m in Sources */,
 				70025CF31F21AB9B00F9DEC3 /* AGRSensorViewController.m in Sources */,
+				7020DD981F5120F10037FBE2 /* AGRMessage.m in Sources */,
 				7042E9F71EEEAA170040FF24 /* MJRefreshAutoNormalFooter.m in Sources */,
 				7018796F1F46B9D300518C59 /* AGRDateCell.m in Sources */,
 				70ECEA171F3C315A0037CD6E /* NSString+FFToast.m in Sources */,
