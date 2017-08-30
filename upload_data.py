@@ -53,6 +53,7 @@ def begin():
         dict = arr2dict(array)
         getImage(datatime)
         upload_data(dict,datatime)
+        time.sleep(10)
         subprocess.call('rm -rf image/'+datatime+'.jpg',shell = True)
     except Exception,e:
         print Exception, ":", e
