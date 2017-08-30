@@ -15,5 +15,10 @@ def get_Temp():
     if result.is_valid():
 	res.append(result.temperature)
 	res.append(result.humidity)
+    if res:
+        pass
+    else:
+        print 'empty array'
+        res = get_Temp()
     return res
     GPIO.cleanup()

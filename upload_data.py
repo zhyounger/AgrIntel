@@ -11,55 +11,51 @@ from dht11_sensor import get_Temp
 from light_sensor import get_Light
 
 def get_Time():
-    time = str(datetime.datetime.now()).replace(' ', '-').replace(':', '-').replace('.', '-')[0:16]
-    return time
-def getData(time):
+    datatime = str(datetime.datetime.now()).replace(' ', '-').replace(':', '-').replace('.', '-')[0:16]
+    return datatime
+def getData(datatime):
     array = []
     T1=get_Temp()
-    if T1:
-        pass
-    else:
-        T1 = get_Temp()
     array.append(T1[0])
     array.append(T1[1])
     T2=get_Light()
-    if T2:
-        pass
-    else:
-        T2 = get_Light()
-    array.append(T2[0])
-    T3 = time
+    array.append(T2)
+    T3 = datatime
     array.append(T3)
     return array
 
 def arr2dict(array):
-    dict = {"sensor":'1' , "time":array[3] , "temperature":str(array[0]) , "humidity":str(array[1]) , "light":str(array[2])}
+    dict = {"sensor":'1' , "time":array[3] , "temperature":array[0] , "humidity":array[1], "light":array[2]}
     return dict
 
-def getImage(time):
-    image_name = time +".jpg"
+def getImage(datatime):
+    image_name = datatime +".jpg"
     a = subprocess.call('raspistill -o image/'+image_name+' -q 5', shell=True)
 
-def upload_data(dict,time):
+def upload_data(dict,datatime):
   
 
     headers = {'content-type': 'application/json',
                'User-Agent': 'Mozilla/5.0 (x11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'}
 
     r = requests.post('http://115.159.120.50/AgrIntel/upload/uploaddata.php', data = dict)
-    files = {'myFile': open("/home/pi/sensor/AgrIntel/image/"+time+".jpg",'rb')}
-    res = requests.post("http://115.159.120.50/AgrIntel/upload/uploadimage.php",files = files)
+    files = {'myFile': open("/home/pi/sensor/AgrIntel/image/"+datatime+".jpg",'rb')}
+    res = requests.post("http://115.159.120.50/AgrIntel/upload/uploadimage1.php",files = files)
     print res.text
     print r.text
     print r.status_code
     print res.status_code
 
 def begin():
-    time = get_Time()
-    array = getData(time)
-    dict = arr2dict(array)
-    getImage(time)
-    upload_data(dict,time)
+    try:
+        datatime = get_Time()
+        array = getData(datatime)
+        dict = arr2dict(array)
+        getImage(datatime)
+        upload_data(dict,datatime)
+        subprocess.call('rm -rf image/'+datatime+'.jpg',shell = True)
+    except Exception,e:
+        print Exception, ":", e
     t = Timer(120,begin)
     t.start()
 begin()
