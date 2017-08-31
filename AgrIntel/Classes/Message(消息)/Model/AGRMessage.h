@@ -11,6 +11,8 @@
 @interface AGRMessage : NSObject
 //传感器
 @property (nonatomic, copy) NSString *sensor;
+//天
+@property (nonatomic, copy) NSString *day;
 //时间
 @property (nonatomic, copy) NSString *time;
 //图片
@@ -33,5 +35,8 @@
 @property (nonatomic, copy) NSString *maxlight;
 //最小光照强度
 @property (nonatomic, copy) NSString *minlight;
+
+//初始化
+-(id)initWithTime:(NSString *)time andSensor:(NSString *)sensor;
 
 @end
