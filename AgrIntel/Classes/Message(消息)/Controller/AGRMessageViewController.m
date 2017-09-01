@@ -13,9 +13,12 @@
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "MJRefresh.h"
+#import "CDPSearchController.h"
 
-@interface AGRMessageViewController ()<UITableViewDataSource, UITableViewDelegate>
-
+@interface AGRMessageViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate>
+{
+    CDPSearchController *_searchController;
+}
 //数据
 @property (nonatomic, strong) NSArray *data;
 
@@ -34,6 +37,9 @@
     
     //设置导航栏左侧logo
     [self setupLeftLogo];
+    
+    //设置导航栏右侧搜索按钮
+    [self setupRightBtn];
     
     //初始化表格
     [self setupTableView];
@@ -139,13 +145,31 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftLogo];
 }
 
+#pragma 导航栏右侧搜索按钮
+- (void)setupRightBtn
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchClick)];
+}
+
+#pragma 搜索按钮点击
+-(void)searchClick{
+    //设置需要搜索的参数名数组,本demo根据CDPSearchModel中的nameStr和phoneStr这两个参数搜索,即姓名和电话
+    //parameterArr里的参数名必须和model里的参数名一样，否则出错
+    NSArray *parameterArr=@[@"time",@"sensor"];
+    
+    //初始化并设置CDPSearchController
+    _searchController = [[CDPSearchController alloc] initWithController:self dataArr:_data prompt:@"搜索" placeholder:@"搜索时间或传感器" parameterArr:parameterArr];
+    
+}
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _data.count;
+//    return _data.count;
+    return (tableView == self.tableView ? _data.count : _searchController.searchResultArr.count);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -172,6 +196,11 @@
     //cell圆角
     cell.layer.cornerRadius = 15;
     cell.layer.masksToBounds = NO;
+    
+//    //判断是否搜索tableView
+//    AGRMessage *model = (tableView == self.tableView?[_data objectAtIndex:indexPath.row]:[_searchController.searchResultArr objectAtIndex:indexPath.row]);
+//    cell.textLabel.text = [NSString stringWithFormat:@"时间:%@",model.time];
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"传感器:%@",model.sensor];
     
     return cell;
 }
