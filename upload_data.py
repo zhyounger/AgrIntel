@@ -39,7 +39,7 @@ def upload_data(dict,datatime):
                'User-Agent': 'Mozilla/5.0 (x11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'}
 
     r = requests.post('http://115.159.120.50/AgrIntel/upload/uploaddata.php', data = dict)
-    files = {'myFile': open("/home/pi/sensor/AgrIntel/image/"+datatime+".jpg",'rb')}
+    files = {'myFile': open("/home/pi/sensor1/AgrIntel/image/"+datatime+".jpg",'rb')}
     res = requests.post("http://115.159.120.50/AgrIntel/upload/uploadimage1.php",files = files)
     print res.text
     print r.text
@@ -53,7 +53,7 @@ def begin():
         dict = arr2dict(array)
         getImage(datatime)
         upload_data(dict,datatime)
-        time.sleep(10)
+        time.sleep(20)
         subprocess.call('rm -rf image/'+datatime+'.jpg',shell = True)
     except Exception,e:
         print Exception, ":", e
