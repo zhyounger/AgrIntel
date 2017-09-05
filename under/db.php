@@ -3,7 +3,7 @@
 /**
  * 单例模式
  */
-class Db {
+ class Db {
 	//用于保存类的实例化的静态成员变量
 	static private $_instance;
 	static private $_connectSource;
@@ -15,20 +15,17 @@ class Db {
 		);
 
 	/**
-	 * 构造函数需要标记为非public（防止外部使用new操作符创建对象）
+	 * 构造函数需要标记为 private（防止外部使用new操作符创建对象）
 	 * 单例不能在其他类中实例化，只能被自身实例化
 	 */
 	private function __construct() {
 
 	}
-
-	/**
-	 * 拥有一个访问这个实例的公共的静态方法
-	 * @return [type] [description]
-	 */
+    /* 拥有一个访问这个实例的公共的静态方法*/
 	static public function getInstance() {
 		/**
 		 * 判断类是否已经实例化
+		  instanceof 运算符是用来在运行时指出对象是否是特定类的一个实例
 		 */
 		if (!self::$_instance instanceof self) {
 			self::$_instance = new self();
@@ -52,3 +49,4 @@ class Db {
 		return self::$_connectSource;
 	}
 }
+

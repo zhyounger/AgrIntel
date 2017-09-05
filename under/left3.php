@@ -1,14 +1,23 @@
 <?php
 header("Content-Type: text/html; charset=utf-8");
-// require_once('db.php');
-// $connect = Db::getInstance()->connect();
-//  $sql = "select * from data where sensor=1";//查询出所需要的条数   
-// $rs = mysqli_query($connect, $sql);   
-// $contents = mysqli_fetch_array($rs);
-// $arr = mysqli_fetch_array($rs, MYSQL_ASSOC))
-  echo '<a href="right3.php';
-  echo '" target="right">';
-  echo "温度";
-  echo '</a>';
-  echo "</br>";
+echo "</br>";//换行
+echo '<div style="line-height:25px;text-align:center;">';//在div里设置文字样式
+echo '<a href="tem.php';
+echo '" style="text-decoration:none" target="right">';
+echo "温度";
+echo '</a>';
+echo "</br>";
+echo "</br>";
+echo '<a href="hum.php';
+echo '" style="text-decoration:none" target="right">';
+echo "湿度";
+echo '</a>';
+echo "</br>";
+echo "</br>";
+echo '<a href="light.php';
+echo '" style="text-decoration:none" target="right">';
+echo "光强";
+echo '</a>';
+echo "</br>";
+echo "</div>";
 ?>
