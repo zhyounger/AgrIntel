@@ -55,7 +55,7 @@ $graph->SetScale('textlin');//设置刻度样式，X轴和Y轴
 $graph->SetY2Scale('lin');
 $graph->SetShadow();//设置背景带阴影
 $graph->img->SetMargin(60, 60, 20, 70);// 设置图表灰度四周边距，顺序为左右上下
-$graph->title->Set(iconv('utf-8', 'GB2312//IGNORE', 'humidity'));//设置走势图的标题　　 
+$graph->title->Set(iconv('utf-8', 'GB2312//IGNORE', 'temperature'));//设置走势图的标题　　 
 $lineplot1 = new LinePlot($tem1);//创建折线图  
 $lineplot2 = new LinePlot($tem2);//创建折线图  
 $graph->Add($lineplot1);

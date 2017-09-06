@@ -1,16 +1,11 @@
 <?php
 
 header("Content-Type: text/json; charset = utf-8");
-
 require_once('db.php');
 
 require_once('api.php');
 
-
-
 $data_array = array();
-
-
 
 $compare = $_GET["compare"];
 

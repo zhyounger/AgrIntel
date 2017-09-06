@@ -18,7 +18,7 @@
 
         <div  id="iframe" style="height: 100%; width:180px; border:2px solid #ffffff ; position: absolute; left: 0px; top: 0px;background-color: #eeeeee"> 
 
-            <iframe name="left" src="under/left.html" style="width:100%; height:100%;" scrolling=no frameborder=no ></iframe> 
+            <iframe name="left" src="left.html" style="width:100%; height:100%;" scrolling=no frameborder=no ></iframe> 
 
          </div> 
 

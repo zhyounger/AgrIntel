@@ -10,7 +10,7 @@ if (isset($_FILES['myFile']))
     $filename = $_FILES['myFile']['name'];
     $tmpname = $_FILES['myFile']['tmp_name'];
     echo $_FILES["myFile"]["error"];
-  //将文件传到服务器根目录的 upload 文件夹中
+  //将文件传到服务器指定的文件夹中
 if(move_uploaded_file($tmpname,"/var/www/AgrIntel/image2/".$filename))
 {
       echo "upload image succeed";

@@ -4,36 +4,24 @@
 }
 
 #title{ 
-    //color:#6ACDFB;
-    color:#666666;
-    text-align:center;
-    //background:#E6E6FF;
-    background::#e5f1ff;
-    margin-top:8px;
-    margin-bottom:5px;
+    color:#666666;/*文本颜色*/
+    text-align:center;/*文本居中*/
+    background::#e5f1ff;/*文字背景色*/
+    margin-top:8px;/*文本到顶部的距离*/
+    margin-bottom:5px;/*文本到底部的距离*/
 }
 
 #top{ 
-    text-align:center;
-    border:0px solid ; 
+    text-align:center;/*文本居中*/
+    border:0px solid ; /*边界*/
     margin-top:5px;
 }
-
-/*
-a{ 
-    color:#000000
-    text-decoration:none;
-    color: blue;
-    font-size: 22px;
-    margin-left:50px;       
-} 
-*/
-
+ 
 a:link{
-    font-size: 22px;
-    margin-left:50px;       
-    color:#666666;
-    text-decoration:none;
+    font-size: 22px;/*字体大小*/
+    margin-left:50px;/*文本到左边的距离*/      
+    color:#666666;/*文本颜色*/
+    text-decoration:none;/*去掉a标签自带下划线*/
 } 
 
 a:visited{
@@ -53,6 +41,10 @@ a:hover{
 a:active{
     font-size: 22px;
     margin-left:50px;       
-    color:#000000;
+    color:#666666;
 } 
 
+#left{
+   font-size: 40px; 
+   color:#000000;
+}
