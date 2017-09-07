@@ -24,7 +24,7 @@
 
         <div style="height: 100%; right:0px; border:2px solid #ffffff; position: absolute; left: 180px; top: 0px;background-color: #eeeeee"> 
 
-            <iframe name="right" src="" style="width:100%; height:100%;" scrolling=no frameborder=no ></iframe> 
+            <iframe name="right" src="right.html" style="width:100%; height:100%;" scrolling=no frameborder=no ></iframe> 
 
         </div> 
 	</div>
