@@ -36,7 +36,4 @@
 //最小光照强度
 @property (nonatomic, copy) NSString *minlight;
 
-//初始化
--(id)initWithTime:(NSString *)time andSensor:(NSString *)sensor;
-
 @end

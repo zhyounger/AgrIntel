@@ -1,16 +1,16 @@
 //
-//  AGRHomeViewController.m
+//  AGRChartViewController.m
 //  AgrIntel
 //
-//  Created by 实验室 on 2017/7/18.
+//  Created by 实验室 on 2017/9/5.
 //  Copyright © 2017年 实验室. All rights reserved.
 //
 
-#import "AGRHomeViewController.h"
-#import "AGRSensorViewController.h"
 #import "AGRChartViewController.h"
+#import "AGRChartChildViewController.h"
+#import "LYSChartAloneLine.h"
 
-@interface AGRHomeViewController ()<UIScrollViewDelegate>
+@interface AGRChartViewController ()<UIScrollViewDelegate>
 
 //标签栏的底部红色指示器
 @property (nonatomic,weak)UIView *indicatorView;
@@ -20,10 +20,12 @@
 @property (nonatomic,weak)UIView *titlesView;
 //底部的所有内容
 @property (nonatomic,weak)UIScrollView *contentView;
+//温度统计图
+@property (nonatomic,strong)LYSChartAloneLine *temLine;
 
 @end
 
-@implementation AGRHomeViewController
+@implementation AGRChartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,29 +41,21 @@
     
     //底部的scrollView
     [self setupContentView];
-
-    //设置导航栏右侧按钮
-    [self setupRightBtn];
+    
 }
 
 #pragma 初始化子控制器
 -(void)setupChildVces
 {
-    AGRSensorViewController *sensor1 = [[AGRSensorViewController alloc]init];
-    sensor1.sensor = @"1";
-    sensor1.day = self.day;
-    [self addChildViewController:sensor1];
+    AGRChartChildViewController *child1 = [[AGRChartChildViewController alloc]init];
+    child1.sensor = @"1";
+    child1.day = self.day;
+    [self addChildViewController:child1];
     
-    AGRSensorViewController *sensor2 = [[AGRSensorViewController alloc]init];
-    sensor2.sensor = @"2";
-    sensor2.day = self.day;
-    [self addChildViewController:sensor2];
-    
-//    AGRSensorViewController *sensor3 = [[AGRSensorViewController alloc]init];
-//    sensor3.title= @"传感器3";
-//    sensor3.id = AGRSensorId3;
-//    [self addChildViewController:sensor3];
-    
+    AGRChartChildViewController *child2 = [[AGRChartChildViewController alloc]init];
+    child2.sensor = @"2";
+    child2.day = self.day;
+    [self addChildViewController:child2];
 }
 
 #pragma 设置导航栏
@@ -69,23 +63,9 @@
 {
     //设置背景色
     self.view.backgroundColor = AGRGlobalBg;
-}
-
-#pragma 设置导航栏右侧按钮
--(void)setupRightBtn
-{
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(rightBtnClick)];
-}
-
-#pragma 导航栏右侧按钮点击
--(void)rightBtnClick
-{
-    AGRChartViewController *chart = [[AGRChartViewController alloc]init];
     
-    //传值
-    chart.day = self.day;
-    
-    [self.navigationController pushViewController:chart animated:YES];
+    //设置导航栏标题
+    self.navigationItem.title = @"近十次数据统计图";
 }
 
 #pragma 设置顶部标签栏
@@ -204,7 +184,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
