@@ -2,10 +2,10 @@
 
 class Response {
 	/**
-	 * 鎸塲son鏂瑰紡杈撳嚭閫氫俊鏁版嵁
-	 * @param  integer $code    鐘舵€佺爜
-	 * @param  string $message 鎻愮ず淇℃伅
-	 * @param  array  $data    鏁版嵁
+	 * 按json方式输出通信数据
+	 * @param  integer $code    状态码
+	 * @param  string $message 提示信息
+	 * @param  array  $data    数据
 	 * @return string
 	 */
 	public static function json($code, $message = '', $data = array()) {

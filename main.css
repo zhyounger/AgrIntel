@@ -1,33 +1,74 @@
-*{ margin:0px; padding:0px;}
+*{ 
+    margin:0px; 
+    padding:0px;
+}
 
-body{
-		
-   background-color:#F7FDFF;
-		
-  }
+#title{ 
+    color:#666666;/*文本颜色*/
+    text-align:center;/*文本居中*/
+    background::#e5f1ff;/*文字背景色*/
+    margin-top:8px;/*文本到顶部的距离*/
+    margin-bottom:5px;/*文本到底部的距离*/
+}
 
-#top{ height:100px; text-align:center; background-image: top_banner.jpg; border:0px solid ; margin-bottom:15px; margin-top:10px;}
-
-#link{
-	color: blue;
-	font-size: 30px;
-          margin-left:50px;       
-      }
+#top{ 
+    text-align:center;/*文本居中*/
+    border:0px solid ; /*边界*/
+    margin-top:5px;
+}
  
-#link:hover{
-	        color: yellow;
-				
-	    }
-a{ text-decoration:none} 
+a:link{
+    font-size: 22px;/*字体大小*/
+    margin-left:50px;/*文本到左边的距离*/      
+    color:#666666;/*文本颜色*/
+    text-decoration:none;/*去掉a标签自带下划线*/
+} 
 
+a:visited{
+    font-size: 22px;
+    margin-left:50px;       
+    color:#666666;
+    text-decoration:none;
+}
+ 
+a:hover{
+    font-size: 22px;
+    margin-left:50px;       
+    color:purple;
+    text-decoration:none;
+} 
 
-h1{
+a:active{
+    font-size: 22px;
+    margin-left:50px;       
+    color:#666666;
+} 
 
-   color:#6ACDFB;
+#left{
+   font-size: 15px; 
+   color:#000000;
+   letter-spacing:4px;/*间距*/
+   float:center;
+ /*  border:1px solid #00F;*/
+   text-align:justify; text-justify:distribute-all-lines;/*文字两端对齐*/
+   text-indent:2em;/*首行缩进*/
+   margin-left:;
+   margin-right:40px;
+   line-height: 30px;
+}
 
-  text-align:center;
+#tu{
+    width:100%;
+    height:100%;
+}
 
-  background:#E6E6FF;
-  
+h{
+    font-size:20px; 
+    font-weight:bold;/*字体加粗*/
+}
+
+#text{
+  border:1px solid #00F;
+  float:bottom;
 
 }

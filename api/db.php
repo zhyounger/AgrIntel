@@ -1,33 +1,31 @@
 <?php
+
 /**
  * 单例模式
  */
-class Db {
-	//用于保存类的实例化的静态成员变�?
+ class Db {
+	//用于保存类的实例化的静态成员变量
 	static private $_instance;
 	static private $_connectSource;
 	private $_dbConfig = array(
 		'host'     =>'127.0.0.1',
 		'user'     =>'root',
 		'password' =>'123456',
-		'database' =>'transducer'
+		'database' =>'raspberry'
 		);
 
 	/**
-	 * 构造函数需要标记为非public（防止外部使用new操作符创建对象）
-	 * 单例不能在其他类中实例化，只能被自身实例�?
+	 * 构造函数需要标记为 private（防止外部使用new操作符创建对象）
+	 * 单例不能在其他类中实例化，只能被自身实例化
 	 */
 	private function __construct() {
 
 	}
-
-	/**
-	 * 拥有一个访问这个实例的公共的静态方�?
-	 * @return [type] [description]
-	 */
+    /* 拥有一个访问这个实例的公共的静态方法*/
 	static public function getInstance() {
 		/**
 		 * 判断类是否已经实例化
+		  instanceof 运算符是用来在运行时指出对象是否是特定类的一个实例
 		 */
 		if (!self::$_instance instanceof self) {
 			self::$_instance = new self();
@@ -52,9 +50,3 @@ class Db {
 	}
 }
 
-/*
-$connect = Db::getInstance()->connect();
-$sql = "select * from data";
-$result = mysqli_query($connect, $sql);
-echo mysqli_num_rows($result);
-*/
