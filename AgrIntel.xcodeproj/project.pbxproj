@@ -74,6 +74,12 @@
 		7042EA411EEEAA2E0040FF24 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042EA2B1EEEAA2E0040FF24 /* UIImageView+WebCache.m */; };
 		7042EA421EEEAA2E0040FF24 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042EA2D1EEEAA2E0040FF24 /* UIView+WebCache.m */; };
 		7042EA431EEEAA2E0040FF24 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042EA2F1EEEAA2E0040FF24 /* UIView+WebCacheOperation.m */; };
+		707EBD2B1F5EBEA3001F31FE /* LYSChartAloneLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 707EBD241F5EBEA3001F31FE /* LYSChartAloneLine.m */; };
+		707EBD2C1F5EBEA3001F31FE /* LYSChartHistogram.m in Sources */ = {isa = PBXBuildFile; fileRef = 707EBD261F5EBEA3001F31FE /* LYSChartHistogram.m */; };
+		707EBD2D1F5EBEA3001F31FE /* LYSChartLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 707EBD281F5EBEA3001F31FE /* LYSChartLine.m */; };
+		707EBD2E1F5EBEA3001F31FE /* LYSChartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 707EBD2A1F5EBEA3001F31FE /* LYSChartManager.m */; };
+		707EBD311F5EC0A3001F31FE /* AGRChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707EBD301F5EC0A3001F31FE /* AGRChartViewController.m */; };
+		707EBD371F6140E2001F31FE /* AGRChartChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707EBD361F6140E2001F31FE /* AGRChartChildViewController.m */; };
 		709A5C3E1F583571002EACDF /* CDPSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709A5C3D1F583571002EACDF /* CDPSearchController.m */; };
 		70E5CBC71F288DF00053090A /* UIView+AGRDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E5CBC61F288DF00053090A /* UIView+AGRDraggable.m */; };
 		70ECE9FC1F3C315A0037CD6E /* fftoast_dismiss.png in Resources */ = {isa = PBXBuildFile; fileRef = 70ECE9D41F3C315A0037CD6E /* fftoast_dismiss.png */; };
@@ -266,6 +272,18 @@
 		7042EA2D1EEEAA2E0040FF24 /* UIView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCache.m"; sourceTree = "<group>"; };
 		7042EA2E1EEEAA2E0040FF24 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		7042EA2F1EEEAA2E0040FF24 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		707EBD231F5EBEA3001F31FE /* LYSChartAloneLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSChartAloneLine.h; sourceTree = "<group>"; };
+		707EBD241F5EBEA3001F31FE /* LYSChartAloneLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSChartAloneLine.m; sourceTree = "<group>"; };
+		707EBD251F5EBEA3001F31FE /* LYSChartHistogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSChartHistogram.h; sourceTree = "<group>"; };
+		707EBD261F5EBEA3001F31FE /* LYSChartHistogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSChartHistogram.m; sourceTree = "<group>"; };
+		707EBD271F5EBEA3001F31FE /* LYSChartLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSChartLine.h; sourceTree = "<group>"; };
+		707EBD281F5EBEA3001F31FE /* LYSChartLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSChartLine.m; sourceTree = "<group>"; };
+		707EBD291F5EBEA3001F31FE /* LYSChartManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSChartManager.h; sourceTree = "<group>"; };
+		707EBD2A1F5EBEA3001F31FE /* LYSChartManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSChartManager.m; sourceTree = "<group>"; };
+		707EBD2F1F5EC0A3001F31FE /* AGRChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRChartViewController.h; sourceTree = "<group>"; };
+		707EBD301F5EC0A3001F31FE /* AGRChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRChartViewController.m; sourceTree = "<group>"; };
+		707EBD351F6140E2001F31FE /* AGRChartChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRChartChildViewController.h; sourceTree = "<group>"; };
+		707EBD361F6140E2001F31FE /* AGRChartChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRChartChildViewController.m; sourceTree = "<group>"; };
 		709A5C3C1F583571002EACDF /* CDPSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPSearchController.h; sourceTree = "<group>"; };
 		709A5C3D1F583571002EACDF /* CDPSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPSearchController.m; sourceTree = "<group>"; };
 		70E5CBC51F288DF00053090A /* UIView+AGRDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AGRDraggable.h"; sourceTree = "<group>"; };
@@ -399,6 +417,10 @@
 				70025CC81F21AB9B00F9DEC3 /* AGRHomeViewController.m */,
 				70025CC91F21AB9B00F9DEC3 /* AGRSensorViewController.h */,
 				70025CCA1F21AB9B00F9DEC3 /* AGRSensorViewController.m */,
+				707EBD2F1F5EC0A3001F31FE /* AGRChartViewController.h */,
+				707EBD301F5EC0A3001F31FE /* AGRChartViewController.m */,
+				707EBD351F6140E2001F31FE /* AGRChartChildViewController.h */,
+				707EBD361F6140E2001F31FE /* AGRChartChildViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -593,6 +615,7 @@
 		701B74111EE029FF0099C901 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				707EBD221F5EBEA3001F31FE /* LYSChart */,
 				709A5C3B1F583571002EACDF /* CDPSearchController */,
 				70ECE9D21F3C315A0037CD6E /* FFToast */,
 				700BEB8C1F3948B8007048C7 /* LCPhotoBrowser */,
@@ -747,6 +770,21 @@
 				7042EA2F1EEEAA2E0040FF24 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		707EBD221F5EBEA3001F31FE /* LYSChart */ = {
+			isa = PBXGroup;
+			children = (
+				707EBD231F5EBEA3001F31FE /* LYSChartAloneLine.h */,
+				707EBD241F5EBEA3001F31FE /* LYSChartAloneLine.m */,
+				707EBD251F5EBEA3001F31FE /* LYSChartHistogram.h */,
+				707EBD261F5EBEA3001F31FE /* LYSChartHistogram.m */,
+				707EBD271F5EBEA3001F31FE /* LYSChartLine.h */,
+				707EBD281F5EBEA3001F31FE /* LYSChartLine.m */,
+				707EBD291F5EBEA3001F31FE /* LYSChartManager.h */,
+				707EBD2A1F5EBEA3001F31FE /* LYSChartManager.m */,
+			);
+			path = LYSChart;
 			sourceTree = "<group>";
 		};
 		709A5C3B1F583571002EACDF /* CDPSearchController */ = {
@@ -1026,6 +1064,7 @@
 				7020DDA11F516F110037FBE2 /* AGRDetailViewController.m in Sources */,
 				7042EA3E1EEEAA2E0040FF24 /* UIImage+MultiFormat.m in Sources */,
 				7018799C1F46D27C00518C59 /* AGRDate.m in Sources */,
+				707EBD311F5EC0A3001F31FE /* AGRChartViewController.m in Sources */,
 				70ECEA181F3C315A0037CD6E /* UIImage+FFToast.m in Sources */,
 				70EFDC7F1EE12A9300300233 /* MJExtensionConst.m in Sources */,
 				7042EA031EEEAA170040FF24 /* UIScrollView+MJRefresh.m in Sources */,
@@ -1037,7 +1076,9 @@
 				7042EA3B1EEEAA2E0040FF24 /* SDWebImagePrefetcher.m in Sources */,
 				70EFDC971EE12AA400300233 /* SVProgressHUD.m in Sources */,
 				7042EA431EEEAA2E0040FF24 /* UIView+WebCacheOperation.m in Sources */,
+				707EBD2D1F5EBEA3001F31FE /* LYSChartLine.m in Sources */,
 				7042EA011EEEAA170040FF24 /* NSBundle+MJRefresh.m in Sources */,
+				707EBD371F6140E2001F31FE /* AGRChartChildViewController.m in Sources */,
 				70EFDCA71EE12AB100300233 /* AFHTTPSessionManager.m in Sources */,
 				70025CF81F21AB9B00F9DEC3 /* AGRConst.m in Sources */,
 				70EFDC861EE12A9300300233 /* NSObject+MJKeyValue.m in Sources */,
@@ -1065,11 +1106,14 @@
 				7042E9FC1EEEAA170040FF24 /* MJRefreshGifHeader.m in Sources */,
 				7042EA361EEEAA2E0040FF24 /* SDWebImageCompat.m in Sources */,
 				7042EA041EEEAA170040FF24 /* UIView+MJExtension.m in Sources */,
+				707EBD2E1F5EBEA3001F31FE /* LYSChartManager.m in Sources */,
 				70025CFD1F21AB9B00F9DEC3 /* AGRTabBarController.m in Sources */,
 				7042E9FB1EEEAA170040FF24 /* MJRefreshBackStateFooter.m in Sources */,
 				70025CF51F21AB9B00F9DEC3 /* AGRSensorCell.m in Sources */,
 				70ECEA1B1F3C315A0037CD6E /* FFToast.m in Sources */,
+				707EBD2B1F5EBEA3001F31FE /* LYSChartAloneLine.m in Sources */,
 				7042EA421EEEAA2E0040FF24 /* UIView+WebCache.m in Sources */,
+				707EBD2C1F5EBEA3001F31FE /* LYSChartHistogram.m in Sources */,
 				70025CF41F21AB9B00F9DEC3 /* AGRSensor.m in Sources */,
 				70EFDC831EE12A9300300233 /* MJPropertyType.m in Sources */,
 				7042EA371EEEAA2E0040FF24 /* SDWebImageDecoder.m in Sources */,

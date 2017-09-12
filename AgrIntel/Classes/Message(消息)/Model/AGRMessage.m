@@ -10,14 +10,5 @@
 
 @implementation AGRMessage
 
-//初始化
--(id)initWithTime:(NSString *)time andSensor:(NSString *)sensor {
-    if (self=[super init]) {
-        _time=time;
-        _sensor=sensor;
-        
-    }
-    return self;
-}
 
 @end
