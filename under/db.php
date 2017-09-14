@@ -23,8 +23,7 @@
 	}
     /* 拥有一个访问这个实例的公共的静态方法*/
 	static public function getInstance() {
-		/**
-		 * 判断类是否已经实例化
+		/* 判断类是否已经实例化
 		  instanceof 运算符是用来在运行时指出对象是否是特定类的一个实例
 		 */
 		if (!self::$_instance instanceof self) {

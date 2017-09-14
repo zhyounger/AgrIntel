@@ -29,6 +29,7 @@ $startnum = ($page-1)*$pageSize;//开始条数
 $sql = "select * from data where sensor=2 order by time desc limit $startnum,$page_size ";//查询出所需要的条数   
 $rs = mysqli_query($connect, $sql);   
 $contents = mysqli_fetch_array($rs);
+$rs = mysqli_query($connect, $sql);
 echo '</br>';
 //用while循环读取数据
 while($arr = mysqli_fetch_array($rs, MYSQL_ASSOC)){
