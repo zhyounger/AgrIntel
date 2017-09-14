@@ -45,16 +45,13 @@ a:active{
 } 
 
 #left{
-   font-size: 15px; 
-   color:#000000;
-   letter-spacing:4px;/*间距*/
-   float:center;
- /*  border:1px solid #00F;*/
+   letter-spacing:3px;/*间距*/
    text-align:justify; text-justify:distribute-all-lines;/*文字两端对齐*/
-   text-indent:2em;/*首行缩进*/
-   margin-left:;
-   margin-right:40px;
-   line-height: 30px;
+   text-indent:3em;/*首行缩进*/
+   width:150px;
+   height:400px;
+   margin:0 auto;
+
 }
 
 #tu{
@@ -65,10 +62,5 @@ a:active{
 h{
     font-size:20px; 
     font-weight:bold;/*字体加粗*/
-}
-
-#text{
-  border:1px solid #00F;
-  float:bottom;
 
 }
