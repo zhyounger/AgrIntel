@@ -92,7 +92,7 @@
     NSMutableDictionary *Limit = [NSMutableDictionary dictionary];
     Limit[@"limit"] = @"1";
     
-    [[AFHTTPSessionManager manager]GET:@"http://115.159.120.50/AgrIntel/api/test.php" parameters:Limit progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+    [[AFHTTPSessionManager manager]GET:AGRGETURL parameters:Limit progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
 //        NSLog(@"原始数据：%@",responseObject);
         
         self.data = responseObject[@"data"][0];
@@ -190,7 +190,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/json"];
     
     //接口地址
-    NSString *url=@"http://115.159.120.50/AgrIntel/api/set.php";
+    NSString *url=AGRSETURL;
     
     //发送请求
     [manager POST:url parameters:set progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -248,6 +248,11 @@
     [logoImg makeDraggable];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftLogo];
+}
+
+#pragma 点击收起键盘
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

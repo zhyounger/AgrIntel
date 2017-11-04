@@ -83,7 +83,7 @@
     ID[@"get_day"] = @"1";
     ID[@"day"] = self.day;
     ID[@"sensor"] = self.sensor;
-    [[AFHTTPSessionManager manager]GET:@"http://115.159.120.50/AgrIntel/api/test.php" parameters:ID progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+    [[AFHTTPSessionManager manager]GET:AGRGETURL parameters:ID progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
         ////得到plist文件
         //[responseObject writeToFile:@"/Users/shiyanshi/Desktop/test1.plist" atomically:YES];
         //NSLog(@"%@",responseObject);

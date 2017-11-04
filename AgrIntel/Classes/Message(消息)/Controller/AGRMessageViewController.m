@@ -87,7 +87,7 @@
     //参数
     NSMutableDictionary *msg = [NSMutableDictionary dictionary];
     msg[@"compare"] = @"1";
-    [[AFHTTPSessionManager manager]GET:@"http://115.159.120.50/AgrIntel/api/test.php" parameters:msg progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+    [[AFHTTPSessionManager manager]GET:AGRGETURL parameters:msg progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
         ////得到plist文件
         //[responseObject writeToFile:@"/Users/shiyanshi/Desktop/test1.plist" atomically:YES];
 //        NSLog(@"%@",responseObject);

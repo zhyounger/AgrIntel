@@ -28,5 +28,8 @@
 
 #define AGRGlobalBg AGRRGBColor(235, 235, 235)
 
+#define AGRGETURL @"http://115.159.120.50/AgrIntel/api/test.php"
+
+#define AGRSETURL @"http://115.159.120.50/AgrIntel/api/set.php"
 
 #endif /* PrefixHeader_pch */
