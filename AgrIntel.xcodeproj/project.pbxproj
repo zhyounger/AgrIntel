@@ -80,7 +80,6 @@
 		707EBD2E1F5EBEA3001F31FE /* LYSChartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 707EBD2A1F5EBEA3001F31FE /* LYSChartManager.m */; };
 		707EBD311F5EC0A3001F31FE /* AGRChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707EBD301F5EC0A3001F31FE /* AGRChartViewController.m */; };
 		707EBD371F6140E2001F31FE /* AGRChartChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707EBD361F6140E2001F31FE /* AGRChartChildViewController.m */; };
-		709A5C3E1F583571002EACDF /* CDPSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709A5C3D1F583571002EACDF /* CDPSearchController.m */; };
 		70E5CBC71F288DF00053090A /* UIView+AGRDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E5CBC61F288DF00053090A /* UIView+AGRDraggable.m */; };
 		70ECE9FC1F3C315A0037CD6E /* fftoast_dismiss.png in Resources */ = {isa = PBXBuildFile; fileRef = 70ECE9D41F3C315A0037CD6E /* fftoast_dismiss.png */; };
 		70ECE9FD1F3C315A0037CD6E /* fftoast_dismiss@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70ECE9D51F3C315A0037CD6E /* fftoast_dismiss@2x.png */; };
@@ -284,8 +283,6 @@
 		707EBD301F5EC0A3001F31FE /* AGRChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRChartViewController.m; sourceTree = "<group>"; };
 		707EBD351F6140E2001F31FE /* AGRChartChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRChartChildViewController.h; sourceTree = "<group>"; };
 		707EBD361F6140E2001F31FE /* AGRChartChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRChartChildViewController.m; sourceTree = "<group>"; };
-		709A5C3C1F583571002EACDF /* CDPSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPSearchController.h; sourceTree = "<group>"; };
-		709A5C3D1F583571002EACDF /* CDPSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPSearchController.m; sourceTree = "<group>"; };
 		70E5CBC51F288DF00053090A /* UIView+AGRDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AGRDraggable.h"; sourceTree = "<group>"; };
 		70E5CBC61F288DF00053090A /* UIView+AGRDraggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AGRDraggable.m"; sourceTree = "<group>"; };
 		70ECE9D41F3C315A0037CD6E /* fftoast_dismiss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fftoast_dismiss.png; sourceTree = "<group>"; };
@@ -616,7 +613,6 @@
 			isa = PBXGroup;
 			children = (
 				707EBD221F5EBEA3001F31FE /* LYSChart */,
-				709A5C3B1F583571002EACDF /* CDPSearchController */,
 				70ECE9D21F3C315A0037CD6E /* FFToast */,
 				700BEB8C1F3948B8007048C7 /* LCPhotoBrowser */,
 				70EFDC991EE12AB100300233 /* AFNetworking */,
@@ -785,15 +781,6 @@
 				707EBD2A1F5EBEA3001F31FE /* LYSChartManager.m */,
 			);
 			path = LYSChart;
-			sourceTree = "<group>";
-		};
-		709A5C3B1F583571002EACDF /* CDPSearchController */ = {
-			isa = PBXGroup;
-			children = (
-				709A5C3C1F583571002EACDF /* CDPSearchController.h */,
-				709A5C3D1F583571002EACDF /* CDPSearchController.m */,
-			);
-			path = CDPSearchController;
 			sourceTree = "<group>";
 		};
 		70B3EA011F03CDA80050A6B8 /* Public */ = {
@@ -1051,7 +1038,6 @@
 				7042EA3A1EEEAA2E0040FF24 /* SDWebImageManager.m in Sources */,
 				7042EA341EEEAA2E0040FF24 /* SDImageCache.m in Sources */,
 				701879651F46753B00518C59 /* AGRDateViewController.m in Sources */,
-				709A5C3E1F583571002EACDF /* CDPSearchController.m in Sources */,
 				7042E9FE1EEEAA170040FF24 /* MJRefreshStateHeader.m in Sources */,
 				70025CF91F21AB9B00F9DEC3 /* AppDelegate.m in Sources */,
 				70EFDC941EE12AA400300233 /* SVIndefiniteAnimatedView.m in Sources */,
@@ -1243,6 +1229,7 @@
 				DEVELOPMENT_TEAM = DSERNMB52Q;
 				GCC_PREFIX_HEADER = "AgrIntel/Classes/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "AgrIntel/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = orient.com.AgrIntel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1258,6 +1245,7 @@
 				DEVELOPMENT_TEAM = DSERNMB52Q;
 				GCC_PREFIX_HEADER = "AgrIntel/Classes/Other(其他)/PrefixHeader.pch";
 				INFOPLIST_FILE = "AgrIntel/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = orient.com.AgrIntel;
 				PRODUCT_NAME = "$(TARGET_NAME)";

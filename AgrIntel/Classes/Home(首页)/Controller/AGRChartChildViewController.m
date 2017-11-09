@@ -9,14 +9,17 @@
 #import "AGRChartChildViewController.h"
 #import "LYSChartAloneLine.h"
 #import "AFNetworking.h"
+#import "FFToast.h"
+
 
 @interface AGRChartChildViewController ()<UIScrollViewDelegate>
-
 //数据
 @property (nonatomic, strong) NSArray *timeArr;
 @property (nonatomic, strong) NSArray *temArr;
 @property (nonatomic, strong) NSArray *humArr;
 @property (nonatomic, strong) NSArray *lightArr;
+
+@property (nonatomic, assign) NSInteger dataCount;
 
 //温度统计图
 @property (nonatomic,strong)LYSChartAloneLine *temLine;
@@ -29,22 +32,15 @@
 
 @implementation AGRChartChildViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //添加Label
     [self addLabels];
     
     //获取数据
     [self getData];
-    
-    //温度统计图
-    [self setupTemLine];
-    
-    //湿度统计图
-    [self setupHumLine];
-    
-    //光照强度统计图
-    [self setupLightLine];
 }
 
 #pragma 添加Label
@@ -55,9 +51,9 @@
     UILabel *humLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 400, 200, 20)];
     UILabel *lightLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 700, 200, 20)];
     //label内容
-    temLabel.text = @"温度:";
-    humLabel.text = @"湿度:";
-    lightLabel.text = @"光照强度:";
+    temLabel.text = @"温度(℃):";
+    humLabel.text = @"湿度(%RH):";
+    lightLabel.text = @"光照强度(Lx):";
     //label字体颜色
     temLabel.textColor = [UIColor darkGrayColor];
     humLabel.textColor = [UIColor darkGrayColor];
@@ -71,39 +67,92 @@
 #pragma 获取数据
 -(void)getData
 {
+    _dataCount = 10;
+    
     //参数
     NSMutableDictionary *ID = [NSMutableDictionary dictionary];
     ID[@"get_day"] = @"1";
     ID[@"day"] = self.day;
     ID[@"sensor"] = self.sensor;
-    
-    [[AFHTTPSessionManager manager]GET:@"http://115.159.120.50/AgrIntel/api/test.php" parameters:ID progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+
+    [[AFHTTPSessionManager manager]GET:AGRGETURL parameters:ID progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
         //返回字典
         NSArray *data = responseObject[@"data"];
+
         //创建数组
         NSMutableArray *arr1 = [[NSMutableArray alloc]initWithCapacity:10];
         NSMutableArray *arr2 = [[NSMutableArray alloc]initWithCapacity:10];
         NSMutableArray *arr3 = [[NSMutableArray alloc]initWithCapacity:10];
         NSMutableArray *arr4 = [[NSMutableArray alloc]initWithCapacity:10];
         
-        for (int i = 0; i < 10; i++) {
+        if (data.count < 10) {
             
-            NSString *str1 = [data[i][@"time"] substringWithRange:NSMakeRange(11, 5)];
-            [arr1 addObject:str1];
-            [arr2 addObject:data[i][@"tem"]];
-            [arr3 addObject:data[i][@"hum"]];
-            [arr4 addObject:data[i][@"light"]];
+//            FFToast *toast = [[FFToast alloc]initToastWithTitle:nil message:@"数据太少了!" iconImage:[UIImage imageNamed:@""]];
+//            toast.toastType = FFToastTypeError;
+//            toast.toastPosition = FFToastPositionCentre;
+//            toast.duration = 1.5;
+//            [toast show];
+            
+            for (int i = 0; i < data.count; i++) {
+//                _dataCount = data.count;
+  
+                NSString *originStr = [data[i][@"time"] substringWithRange:NSMakeRange(11, 5)];//日期格式化类
+                //创建日期格式
+                NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
+                //设置日期格式
+                fmt.dateFormat = @"HH-mm";
+                //传感器创建数据的时间
+                NSDate *create = [fmt dateFromString:originStr];
+                //日期赋值
+                fmt.dateFormat = @"HH:mm";
+                NSString *timeStr = [fmt stringFromDate:create];
+                
+                [arr1 addObject:timeStr];
+                [arr2 addObject:data[i][@"tem"]];
+                [arr3 addObject:data[i][@"hum"]];
+                [arr4 addObject:data[i][@"light"]];
+            }
+            
+//            for (int i = 0; i < 10 - _dataCount; i++) {
+//                [arr1 addObject:@"--:--"];
+//                [arr2 addObject:@"0"];
+//                [arr3 addObject:@"0"];
+//                [arr4 addObject:@"0"];
+//            }
+            NSLog(@"%@", arr1);
+        }else{
+            for (int i = 0; i < 10; i++) {
+                
+                NSString *originStr = [data[i][@"time"] substringWithRange:NSMakeRange(11, 5)];//日期格式化类
+                //创建日期格式
+                NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
+                //设置日期格式
+                fmt.dateFormat = @"HH-mm";
+                //传感器创建数据的时间
+                NSDate *create = [fmt dateFromString:originStr];
+                //日期赋值
+                fmt.dateFormat = @"HH:mm";
+                NSString *timeStr = [fmt stringFromDate:create];
+                
+                [arr1 addObject:timeStr];
+                [arr2 addObject:data[i][@"tem"]];
+                [arr3 addObject:data[i][@"hum"]];
+                [arr4 addObject:data[i][@"light"]];
+            }
         }
         
+        //倒序排列
         _timeArr = [[arr1 reverseObjectEnumerator] allObjects];
         _temArr = [[arr2 reverseObjectEnumerator] allObjects];
         _humArr = [[arr3 reverseObjectEnumerator] allObjects];
         _lightArr = [[arr4 reverseObjectEnumerator] allObjects];
         
-        NSLog(@"%@-------%@", _timeArr, arr1);
-        NSLog(@"%@-------%@", _temArr, arr2);
-        NSLog(@"%@-------%@", _humArr, arr3);
-        NSLog(@"%@-------%@", _lightArr, arr4);
+        //温度统计图
+        [self setupTemLine:(_dataCount)];
+        //湿度统计图
+        [self setupHumLine:(_dataCount)];
+        //光照强度统计图
+        [self setupLightLine:(_dataCount)];
         
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
         
@@ -111,14 +160,14 @@
 }
 
 #pragma 温度统计图
--(void)setupTemLine
+-(void)setupTemLine:(NSInteger )temCount
 {
     //创建折线图
     _temLine = [[LYSChartAloneLine alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, 250)];
     _temLine.row = 6;
-    _temLine.column = 10;
+    _temLine.column = temCount;
     //是否曲线
-    _temLine.isCurve = YES;
+    _temLine.isCurve = NO;
     //是否显示阈值线
     _temLine.isShowBenchmarkLine = NO;
     //是否是百分比
@@ -128,39 +177,35 @@
 }
 
 #pragma 湿度统计图
--(void)setupHumLine
+-(void)setupHumLine:(NSInteger )humCount
 {
     //创建折线图
     _humLine = [[LYSChartAloneLine alloc] initWithFrame:CGRectMake(0, 420, self.view.frame.size.width, 250)];
-    _humLine.row = 5;
-    _humLine.column = 10;
+    _humLine.row = 6;
+    _humLine.column = humCount;
     //是否曲线
-    _humLine.isCurve = YES;
+    _humLine.isCurve = NO;
     //是否显示阈值线
     _humLine.isShowBenchmarkLine = NO;
     //是否是百分比
     _humLine.isPercent = NO;
-//    //阈值线样式
-//    _humLine.benchmarkLineStyle.benchmarkValue = @0.5;
     [_humLine reloadData];
     [self.view addSubview:_humLine];
 }
 
 #pragma 光照强度统计图
--(void)setupLightLine
+-(void)setupLightLine:(NSInteger )lightCount
 {
     //创建折线图
     _lightLine = [[LYSChartAloneLine alloc] initWithFrame:CGRectMake(0, 720, self.view.frame.size.width, 250)];
     _lightLine.row = 6;
-    _lightLine.column = 10;
+    _lightLine.column = lightCount;
     //是否曲线
-    _lightLine.isCurve = YES;
+    _lightLine.isCurve = NO;
     //是否显示阈值线
     _lightLine.isShowBenchmarkLine = NO;
     //是否是百分比
     _lightLine.isPercent = NO;
-//    //阈值线样式
-//    _lightLine.benchmarkLineStyle.benchmarkValue = @0.5;
     [_lightLine reloadData];
     [self.view addSubview:_lightLine];
 }
@@ -174,7 +219,7 @@
     
     _humLine.valueData = _humArr;
     _humLine.columnData = _timeArr;
-    _humLine.rowData = @[@"0", @"25", @"50", @"75", @"100"];
+    _humLine.rowData = @[@"0", @"20", @"40", @"60", @"80", @"100"];
     
     _lightLine.valueData = _lightArr;
     _lightLine.columnData = _timeArr;
@@ -184,6 +229,7 @@
     [_humLine reloadData];
     [_lightLine reloadData];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

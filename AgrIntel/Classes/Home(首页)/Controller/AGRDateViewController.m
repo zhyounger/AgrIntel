@@ -52,7 +52,7 @@
 #pragma 刷新控件
 -(void)setupRefresh
 {
-    //上拉设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
+    //下拉设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     //自定义文字
     [header setTitle:@"继续下拉刷新！" forState:MJRefreshStateIdle];
@@ -62,16 +62,16 @@
     header.automaticallyChangeAlpha = YES;
     //开始刷新
     [header beginRefreshing];
-    //设置上拉刷新控件
+    //设置下拉刷新控件
     self.tableView.mj_header = header;
     
-    //下拉设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
+    //上拉设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     //自定义文字
     [footer setTitle:@"点击或上拉加载更多！" forState:MJRefreshStateIdle];
     [footer setTitle:@"服务器正在狂奔 ..." forState:MJRefreshStateRefreshing];
     [footer setTitle:@"没有更多数据啦！" forState:MJRefreshStateNoMoreData];
-    //设置下拉刷新控件
+    //设置上拉刷新控件
     self.tableView.mj_footer = footer;
 }
 
@@ -85,7 +85,7 @@
     NSMutableDictionary *Date = [NSMutableDictionary dictionary];
     Date[@"get_day"] = @"1";
     
-    [[AFHTTPSessionManager manager]GET:@"http://115.159.120.50/AgrIntel/api/test.php" parameters:Date progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+    [[AFHTTPSessionManager manager]GET:AGRGETURL parameters:Date progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
         //得到plist文件
 //         [responseObject writeToFile:@"/Users/shiyanshi/Desktop/test1.plist" atomically:YES];
         //打印json
