@@ -39,8 +39,7 @@
 
 			if (!self::$_connectSource) {
 				//抛出异常
-				throw new Exception('MySQL connect error'.mysql_error(), 1);
-				//die('MySQL connect error'.mysql_error());
+				die('MySQL connect error'.mysqli_connect_error());
 			}
 
 			mysqli_select_db(self::$_connectSource, $this->_dbConfig['database']);
